@@ -9,6 +9,8 @@ Tercer paso conectar base de datos con la capa de negocio, rellenar los datos de
 Cuarto paso correr el servidor, en la terminal npm run start, con ese comando el servidor estaria arriba.
 
 
+
+
 Pasos para el proyecto django.
 Primer paso instalar python con django.
 Segundo paso instalar pip install requests para las peticiones a la api de node.
