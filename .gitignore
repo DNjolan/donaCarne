@@ -1,2 +1,5 @@
-node_modules
-/node_modules
+app-dona-carne-node/node_modules
+app_dona_carne_django/app_dona_carne_django/__pycache__
+app_dona_carne_django/empleado/migrations
+app_dona_carne_django/huesped/migrations
+app_dona_carne_django/inicio/migrations
