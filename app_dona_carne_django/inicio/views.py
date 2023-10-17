@@ -4,10 +4,14 @@ from django.shortcuts import render, redirect
 
 def inicio(request):
     usuario = request.session.get('usuario', default=None)
-    nombre ={
-        'nombre': usuario.get('Nombre'),
-        'apellido_paterno': usuario.get('Apellido_Paterno')
-    } 
+    
+    if usuario == None:
+        return render (request,'core/index.html')
+    else:
+        nombre ={
+            'nombre': usuario.get('Nombre'),
+            'apellido_paterno': usuario.get('Apellido_Paterno')
+        } 
     return render (request,'core/index.html', nombre)
 
 def cerrar_sesion(request):
