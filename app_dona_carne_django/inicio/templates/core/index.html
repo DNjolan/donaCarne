@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Bienvenido {{ nombre }} {{ apellido_paterno }}</h1>
+    <h1>Bienvenido {{ nombre }} {{ apellido_paterno }} {{ rol }}</h1>
     <a href="{% url 'inicio-sesion' %}">Iniciar sesión empleado</a>
-    <a href="">Iniciar sesión huesped</a>
+    <a href="{% url 'inicio-sesion-hues' %}">Iniciar sesión huesped</a>
+    <a href="{% url 'registrar_empleado' %}">Registrar empleado con cuenta admin</a>
+    <a href="#">Registrar huesped</a>
     <a href="{% url 'cerrar_sesion' %}">Cerrar sesión</a>
 
 </body>

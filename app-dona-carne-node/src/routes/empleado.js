@@ -12,13 +12,12 @@ export const createEmpleadoRouter = () =>{
 
     // Pasar paremetros ({correo, contrasena})
     empleadoRouter.get('/obtener-todos-los-empleados', empleadoController.getEmpleadoAll)
-    1
     // Pasar paremetros ({nombre, apellido_paterno, apellido_materno, numero_telefono,
     //                      correoRegistro, contrasenaRegistro, fecha_nacimiento,
     //                      sexo, direccion_id_direccion, rol_id_rol,
     //                      correo, contrasena
     //                      })
-    empleadoRouter.post('/registrar-empleado', empleadoController.postRegistrarEmpleado)
+    empleadoRouter.get('/registrar-empleado', empleadoController.postRegistrarEmpleado)
 
     return empleadoRouter
 }

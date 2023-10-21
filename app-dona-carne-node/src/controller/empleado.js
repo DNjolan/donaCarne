@@ -46,6 +46,8 @@ export class EmpleadoController {
         const contrasena = req.query.contrasena
         const permiso = await EmpleadoDao.daoGetUsuarioLogin({ correo, contrasena})
 
+        console.log(req.query);
+
         if(permiso){
             const idPermiso = permiso[0].Rol_id_rol
             const registro = await EmpleadoDao.daoPostRegistrarEmpleado({nombre,
@@ -59,6 +61,7 @@ export class EmpleadoController {
                 direccion_id_direccion,
                 rol_id_rol
             })
+            console.log('registro: ', registro);
             if (registro && idPermiso === 1) {
                 return res.json({mensaje: 'Registrado con exito'})
             }else {

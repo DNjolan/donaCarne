@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Registrar empleado</h1>
+    <form action="{% url 'registrar_empleado' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="nombre">Nombre empleado</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Pepito">
+        </div>
+        <div>
+            <label for="apellido_paterno">Apellido paterno</label>
+            <input type="text" name="apellido_paterno" id="apellido_paterno" placeholder="Alcachofa">
+        </div>
+        <div>
+            <label for="apellido_materno">Apellido materno</label>
+            <input type="text" name="apellido_materno" id="apellido_materno" placeholder="Alfonso">
+        </div>
+        <div>
+            <label for="numero_telefono">Número telefónico</label>
+            <input type="tel" name="numero_telefono" id="numero_telefono" placeholder="920203020">
+        </div>
+        <div>
+            <label for="correo_emp">Correo electrónico</label>
+            <input type="email" name="correo_emp" id="correo_emp" placeholder="Ejemplo@gmail.com">
+        </div>
+        <div>
+            <label for="contrasena_emp">Contraseña</label>
+            <input type="password" name="contrasena_emp" id="contrasena_emp" placeholder="Pepito321.,">
+        </div>
+        <div>
+            <label for="fecha_nacimieto">Fecha de nacimiento</label>
+            <input type="date" name="fecha_nacimieto" id="fecha_nacimieto">
+        </div>
+        <div>
+            <label for="sexo">Sexo</label>
+            <select name="sexo" id="sexo">
+                <option value="N">No procede</option>
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+        </div>
+        <div>
+            <label for="direccion">Dirección</label>
+            <input type="text" name="direccion" id="direccion" placeholder="Tres Oriente">
+        </div>
+        <div>
+            <label for="numero_direccion">Número dirección</label>
+            <input type="text" name="numero_direccion" id="numero_direccion" placeholder="2314">
+        </div>
+        <div>
+            <label for="comuna_id_comuna">Comuna</label>
+            <select name="comuna_id_comuna" id="comuna_id_comuna">
+                {% for i in comunas%}
+                <option value="{{ i.id_comuna }}">{{ i.comuna }}</option>
+                {% endfor %}
+            </select>
+
+        </div>
+        <div>
+            <label for="region">Región</label>
+            <select name="region" id="region">
+                {% for i in regiones %}
+                <option value="{{ i.id_ciudad }}">{{ i.Ciudad }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" placeholder="Enviar">
+    </form>
+</body>
+</html>
