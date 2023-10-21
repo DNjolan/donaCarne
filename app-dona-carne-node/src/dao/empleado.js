@@ -72,4 +72,20 @@ export class EmpleadoDao {
             return 0
         }
     }
+
+        // Registrar Categoria de productos
+    static async daoPostRegistrarCategoria({id_categoria,
+                                            Categoria }) {
+            try{
+                const resultado = await conexion.query(
+                    `INSERT INTO cate_producto(id_categoria,Categoria)VALUES(?,?);`,[id_categoria,Categoria]
+                )
+                return resultado [0]
+                } catch {
+                    return 0
+                }
+
+            }
 }
+
+

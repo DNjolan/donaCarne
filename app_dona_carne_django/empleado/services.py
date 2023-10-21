@@ -1,5 +1,5 @@
 import requests
-
+import json
 def inicio_sesion(datos):
     url = 'http://localhost:1234/empleado/inicio-sesion'
     respuesta = requests.get(url, datos)
@@ -10,7 +10,23 @@ def inicio_sesion(datos):
             data = respuesta.json()
             return data
         except requests.exceptions.RequestException as err:
-            return JsonResponse({'error: ': str(err)}, status=500)
+            return None
+        # ({'error: ': str(err)}, status=500)
     else:
         print('error')
         return
+
+def emp_post_categoria(datos):
+    url = 'http://localhost:1234/empleado/ordenes'
+    respuesta = requests.post(url, datos)
+    print(respuesta)
+    if respuesta.status_code == 200:
+        try:
+
+            data = respuesta.json()
+            return data
+        except requests.exceptions.RequestException as err:
+            return None
+    else:
+        print('error')
+        return    

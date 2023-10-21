@@ -68,4 +68,30 @@ export class EmpleadoController {
             return res.json({mensaje: 'Error al registrar'})
         }
     }
+
+    postRegistrarCategoria = async (req, res) => {
+        const id_categoria = req.query.id_categoria
+        const Categoria = req.query.Categoria
+        
+        const registro_cat = await EmpleadoDao.daoPostRegistrarCategoria({id_categoria,Categoria})
+        if (registro_cat == 1){
+            return res.json({mensaje: 'Categoria registrada'})
+        }else{
+            return res.json({mensaje:'Error al registrar Categoria'})
+        }
+        
+        // if(permiso){
+        //     const idPermiso = permiso[0].Rol_id_rol
+        //     const registro_cat = await EmpleadoDao.daoPostRegistrarCategoria({id_categoria,Categoria})
+        //     if (registro_cat && idPermiso == 1){
+        //         return res.json({mensaje: 'Categoria registrada'})
+        //     }else{
+        //         return res.json({mensaje:'Error al registrar Categoria'})
+        //     }
+        // }else{
+        //     return res.json({mensaje:'Error al registrar Categoria -1'})
+        // }
+    }
+
+
 }
