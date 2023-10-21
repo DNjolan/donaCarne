@@ -6,9 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Registrar empleado</h1>
+    <h1>Registrar huésped</h1>
     <a href="{% url 'inicio' %}">Inicio</a>
-    <form action="{% url 'registrar_empleado' %}" method="POST">
+    <br>
+    <br>
+    <form action="{% url 'registrar-huesped' %}" method="POST">
         {% csrf_token %}
         <div>
             <label for="nombre">Nombre empleado</label>
@@ -23,20 +25,24 @@
             <input type="text" name="apellido_materno" id="apellido_materno" placeholder="Alfonso">
         </div>
         <div>
+            <label for="rut_hues">Rut</label>
+            <input type="text" name="rut_hues" id="rut_hues" placeholder="20.200.200-2">
+        </div>
+        <div>
+            <label for="nacionalidad_hues">Nacionalidad</label>
+            <input type="tel" name="nacionalidad_hues" id="nacionalidad_hues" placeholder="Chileno">
+        </div>
+        <div>
             <label for="numero_telefono">Número telefónico</label>
             <input type="tel" name="numero_telefono" id="numero_telefono" placeholder="920203020">
         </div>
         <div>
-            <label for="correo_emp">Correo electrónico</label>
-            <input type="email" name="correo_emp" id="correo_emp" placeholder="Ejemplo@gmail.com">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" name="correo" id="correo" placeholder="Ejemplo@gmail.com">
         </div>
         <div>
-            <label for="contrasena_emp">Contraseña</label>
-            <input type="password" name="contrasena_emp" id="contrasena_emp" placeholder="Pepito321.,">
-        </div>
-        <div>
-            <label for="fecha_nacimieto">Fecha de nacimiento</label>
-            <input type="date" name="fecha_nacimieto" id="fecha_nacimieto">
+            <label for="contrasena">Contraseña</label>
+            <input type="password" name="contrasena" id="contrasena" placeholder="Pepito321.,">
         </div>
         <div>
             <label for="sexo">Sexo</label>
@@ -45,6 +51,10 @@
                 <option value="M">M</option>
                 <option value="F">F</option>
             </select>
+        </div>
+        <div>
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento">
         </div>
         <div>
             <label for="direccion">Dirección</label>

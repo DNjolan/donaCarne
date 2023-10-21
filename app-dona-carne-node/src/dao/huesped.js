@@ -14,6 +14,7 @@ export class HuespedDao {
         apellido_materno, rut_hues, nacionalidad_hues, numero_telefono, correo,
         contrasena, sexo, fecha_nacimiento, direccion_id_direccion}) {
         try {
+
             const resultado = await conexion.query(
                 `INSERT INTO huesped(Nombre_huesped,
                     Apellido_paterno_hues, Apellido_materno_hues, Rut_hues,
@@ -39,7 +40,7 @@ export class HuespedDao {
             )
             return resultado[0]
         } catch (err){
-            return 0
+            return console.log('Error: ', err);
         }
     }
 }

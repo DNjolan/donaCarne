@@ -11,7 +11,8 @@ def inicio_sesion(datos):
             data = respuesta.json()
             return data
         except requests.exceptions.RequestException as err:
-            return JsonResponse({'error: ': str(err)}, status=500)
+            print('Error de conexión: ', err)
+            return None
     else:
         print('error')
         return
@@ -25,7 +26,8 @@ def serv_get_comuna():
             data = respuesta.json()
             return data
         except requests.exceptions.RequestException as err:
-            return JsonResponse({'error: ': str(err)}, status=500)
+            print('Error de conexión: ', err)
+            return None
     else:
         print('error')
         return
@@ -40,7 +42,8 @@ def serv_get_region():
             data = respuesta.json()
             return data
         except requests.exceptions.RequestException as err:
-            return JsonResponse({'error: ': str(err)}, status=500)
+            print('Error de conexión: ', err)
+            return None
     else:
         print('error')
         return
@@ -79,7 +82,6 @@ def serv_get_direccion():
 def serv_post_empleado(datos):
     url = 'http://localhost:1234/empleado/registrar-empleado'
     respuesta = requests.get(url, datos)
-    print(respuesta)
     if respuesta.status_code == 200:
         try:
 

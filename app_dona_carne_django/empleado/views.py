@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .services import *
-# Create your views here.
 
 def view_inicio_sesion(request):
     print('Primero', request)
@@ -74,7 +73,20 @@ def registrar_empleado(request):
                 }
                 
                 resultado = serv_post_empleado(data)
-                print(resultado)
-            else:
-                redirect('inicio')        
+                if resultado.get('mensaje') == 'Registrado con exito':
+                    return redirect('inicio')
+                else:
+                    return render (request, 'core/registrar-empleado.html', datos)      
     return render (request, 'core/registrar-empleado.html', datos)
+
+def visualizar_habitaciones(request):
+    return render(request, 'core/read-habitaciones.html')
+
+def crear_habitaciones(request):
+    return render(request, 'core/create-habitaciones.html')
+
+def actualizar_habitaciones(request, id):
+    return render(request, 'core/update-habitaciones.html')
+
+def eliminar_habitaciones(request, id):
+    return redirect('visualizar-habitaciones')

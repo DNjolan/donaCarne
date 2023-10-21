@@ -67,7 +67,6 @@ export class EmpleadoDao {
                         rol_id_rol
                     ]
             )
-            console.log('resultado: ', resultado);
             return resultado[0]
         } catch (err){
             console.log('Error: ', err);
