@@ -23,3 +23,6 @@ def view_inicio_sesion(request):
         else:
             return render (request, 'core/inicio-sesion.html')
     return render (request,'core/inicio-sesion.html')
+
+def view_ordenes(request):
+    return render(request,'core/ordenes.html') 

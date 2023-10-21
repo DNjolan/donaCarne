@@ -4,7 +4,7 @@ const config = {
     host: 'localhost',
     user: 'root',
     port: 3306,
-    password: 'Jolan546II',
+    password: '12345678',
     database: 'dona_carne_dos',
 }
 
