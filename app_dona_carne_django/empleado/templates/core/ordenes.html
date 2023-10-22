@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Solicitar productos</h1>
-    <center><p>Ingresa la información para cada categoría</p>
+    <p>Ingresa la información para cada categoría</p>
     <form action="{% url 'ordenes' %}" method="post">
         {% csrf_token %}
         <label for="id_categoria">id categoria</label>
@@ -16,11 +16,16 @@
         <label for="Categoria">Nombre Categoria</label>
         <input type="text" id="Categoria" name="Categoria" placeholder="Categoria"><br>
 
-        <input type="submit" value="guardar"></center>
+        <input type="submit" placeholder="guardar">
     </form>
     
-    <!-- {% if Categoria %}
-        <p>Categoria: {{id_categoria}},{{ Categoria }}</p>
-    {% endif %} -->
+    <!-- Category Option List  -->
+    <label for="Categoria">Nombre Categoria</label>
+    <select id="Categoria" name="Categoria">
+        <option value=""></option>
+        {% for i in Categoria %}
+            <option value="{{i.id_categoria}}">{{ i.Categoria }} ,,</option>
+        {% endfor %}
+    </select><br>
 </body>
 </html>

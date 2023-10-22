@@ -74,18 +74,21 @@ export class EmpleadoDao {
     }
 
         // Registrar Categoria de productos
-    static async daoPostRegistrarCategoria({id_categoria,
-                                            Categoria }) {
-            try{
+        static async daoPostRegistrarCategoria({ id_categoria, Categoria }) {
+            try {
                 const resultado = await conexion.query(
-                    `INSERT INTO cate_producto(id_categoria,Categoria)VALUES(?,?);`,[id_categoria,Categoria]
-                )
-                return resultado [0]
-                } catch {
-                    return 0
-                }
-
+                    `INSERT INTO cate_producto(id_categoria,Categoria) VALUES (?,?);`, [id_categoria, Categoria]
+                );
+        
+                // Assuming resultado[0] contains the ID of the inserted record
+                console.log('Insert Result:', resultado[0]);  // Add this line to print the result
+                return resultado[0];
+            } catch (error) {
+                console.error('Error in daoPostRegistrarCategoria:', error);  // Print the error message
+                return 0;
             }
+        }
+        
 }
 
 

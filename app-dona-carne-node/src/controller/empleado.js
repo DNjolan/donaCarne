@@ -70,15 +70,27 @@ export class EmpleadoController {
     }
 
     postRegistrarCategoria = async (req, res) => {
-        const id_categoria = req.query.id_categoria
-        const Categoria = req.query.Categoria
-        
-        const registro_cat = await EmpleadoDao.daoPostRegistrarCategoria({id_categoria,Categoria})
-        if (registro_cat == 1){
-            return res.json({mensaje: 'Categoria registrada'})
-        }else{
-            return res.json({mensaje:'Error al registrar Categoria'})
-        }
+        const Categoria = req.body.Categoria;
+        const id_categoria = req.body.id_categoria;
+        try {
+            const registro_cat = await EmpleadoDao.daoPostRegistrarCategoria({ id_categoria,Categoria });
+    
+            if (registro_cat === 0) {
+                console.log('Categoria registrada');
+                return res.json({ mensaje: 'Error al registrar Categoria' });
+            } else {
+                console.log('Error al registrar Categoria');
+                return res.json({ mensaje: 'Categoria registrada' });
+            }
+        } catch (error) {
+            console.log('Databse error');
+            console.error('Database Error:', error);
+            return res.status(500).json({ mensaje: 'Error de base de datos' });
+    }
+    
+    
+    
+    
         
         // if(permiso){
         //     const idPermiso = permiso[0].Rol_id_rol

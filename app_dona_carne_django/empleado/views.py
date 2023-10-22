@@ -25,9 +25,11 @@ def view_inicio_sesion(request):
     return render (request,'core/inicio-sesion.html')
 
 def view_ordenes(request):
+    Categoria = None
+    id_categoria = None
     if request.method == 'POST':
-        id_categoria = request.POST["id_categoria"]
         Categoria = request.POST["Categoria"]
-        datos = {'id_categoria': id_categoria, 'Categoria': Categoria}
+        id_categoria = request.POST["id_categoria"]
+        datos = {'id_categoria':id_categoria,'Categoria': Categoria}
         print(datos)
-    return render(request,'core/ordenes.html') 
+    return render(request,'core/ordenes.html', {'id_categoria':id_categoria,'Categoria': Categoria}) 
