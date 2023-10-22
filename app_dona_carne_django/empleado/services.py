@@ -67,7 +67,7 @@ def serv_get_region():
 
 def serv_post_direccion(data_direccion):
     url = 'http://localhost:1234/post-datos-x/registrar-direccion'
-    respuesta = requests.get(url, data_direccion)
+    respuesta = requests.post(url, json = data_direccion)
 
     if respuesta.status_code == 200:
         try:
@@ -97,7 +97,7 @@ def serv_get_direccion():
 
 def serv_post_empleado(datos):
     url = 'http://localhost:1234/empleado/registrar-empleado'
-    respuesta = requests.get(url, datos)
+    respuesta = requests.post(url, json = datos)
     if respuesta.status_code == 200:
         try:
 

@@ -13,7 +13,7 @@ export const createHuespedRouter = () =>{
     //      Apellido_materno_hues, Rut_hues, Nacionalidad_hues,
     //      Telefono_hues, Correo_hues, contrasena_hues,
     //      Sexo_hues, Fecha_nacimiento_hues})
-    huespedRouter.get('/registrar-huesped', huespedController.postRegistrarHuesped)
+    huespedRouter.post('/registrar-huesped', huespedController.postRegistrarHuesped)
     
     return huespedRouter
 }

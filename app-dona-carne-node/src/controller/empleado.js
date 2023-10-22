@@ -29,19 +29,19 @@ export class EmpleadoController {
     }
     
     postRegistrarEmpleado = async (req, res) => {
-        const nombre = req.query.nombre
-        const apellido_paterno = req.query.apellido_paterno
-        const apellido_materno = req.query.apellido_materno
-        const numero_telefono = req.query.numero_telefono
-        const correoRegistro = req.query.correoRegistro
-        const contrasenaRegistro = req.query.contrasenaRegistro
-        const fecha_nacimiento = req.query.fecha_nacimiento
-        const sexo = req.query.sexo
-        const direccion_id_direccion = req.query.direccion_id_direccion
-        const rol_id_rol = req.query.rol_id_rol
+        const nombre = req.body.nombre
+        const apellido_paterno = req.body.apellido_paterno
+        const apellido_materno = req.body.apellido_materno
+        const numero_telefono = req.body.numero_telefono
+        const correoRegistro = req.body.correoRegistro
+        const contrasenaRegistro = req.body.contrasenaRegistro
+        const fecha_nacimiento = req.body.fecha_nacimiento
+        const sexo = req.body.sexo
+        const direccion_id_direccion = req.body.direccion_id_direccion
+        const rol_id_rol = req.body.rol_id_rol
 
-        const correo = req.query.correo
-        const contrasena = req.query.contrasena
+        const correo = req.body.correo
+        const contrasena = req.body.contrasena
         const permiso = await EmpleadoDao.daoGetUsuarioLogin({ correo, contrasena})
 
         if(permiso){

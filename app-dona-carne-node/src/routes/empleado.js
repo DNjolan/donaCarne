@@ -17,7 +17,7 @@ export const createEmpleadoRouter = () =>{
     //                      sexo, direccion_id_direccion, rol_id_rol,
     //                      correo, contrasena
     //                      })
-    empleadoRouter.get('/registrar-empleado', empleadoController.postRegistrarEmpleado)
+    empleadoRouter.post('/registrar-empleado', empleadoController.postRegistrarEmpleado)
 
     return empleadoRouter
 }

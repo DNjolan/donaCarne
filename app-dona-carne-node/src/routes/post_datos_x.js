@@ -7,7 +7,7 @@ export const createPostDatosXRouter = () => {
 
     postDatosXRouter.get('/')
 
-    postDatosXRouter.get('/registrar-direccion', postDatosXController.postDireccion)
+    postDatosXRouter.post('/registrar-direccion', postDatosXController.postDireccion)
 
     return postDatosXRouter
 }

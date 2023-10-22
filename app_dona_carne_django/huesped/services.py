@@ -16,7 +16,7 @@ def inicio_sesion(datos):
 
 def serv_registrar_huesped(datos):
     url = 'http://localhost:1234/huesped/registrar-huesped'
-    respuesta = requests.get(url, datos)
+    respuesta = requests.post(url, json = datos)
     if respuesta.status_code == 200:
         try:
 

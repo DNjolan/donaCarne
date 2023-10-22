@@ -10,17 +10,17 @@ export class HuespedController {
     }
 
     postRegistrarHuesped = async (req, res) => {
-        const nombre = req.query.nombre
-        const apellido_paterno = req.query.apellido_paterno
-        const apellido_materno = req.query.apellido_materno
-        const rut_hues = req.query.rut_hues
-        const nacionalidad_hues = req.query.nacionalidad_hues
-        const numero_telefono = req.query.numero_telefono
-        const correo = req.query.correo
-        const contrasena = req.query.contrasena
-        const sexo = req.query.sexo
-        const fecha_nacimiento = req.query.fecha_nacimiento
-        const direccion_id_direccion = req.query.direccion_id_direccion
+        const nombre = req.body.nombre
+        const apellido_paterno = req.body.apellido_paterno
+        const apellido_materno = req.body.apellido_materno
+        const rut_hues = req.body.rut_hues
+        const nacionalidad_hues = req.body.nacionalidad_hues
+        const numero_telefono = req.body.numero_telefono
+        const correo = req.body.correo
+        const contrasena = req.body.contrasena
+        const sexo = req.body.sexo
+        const fecha_nacimiento = req.body.fecha_nacimiento
+        const direccion_id_direccion = req.body.direccion_id_direccion
 
         const registro = await HuespedDao.daoPostRegistrarHuesped({nombre,
             apellido_paterno,
