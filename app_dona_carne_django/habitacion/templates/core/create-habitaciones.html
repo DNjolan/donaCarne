@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Administrador de habitaciones // Creación de habitaciones</h1>
+    <a href="{% url 'inicio' %}">Inicio</a>
+    <a href="{% url 'visualizar-habitaciones' %}">Volver</a>
+    <br>
+    <br>
+    <form action="{% url 'crear-habitaciones' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="dormitorios">Cantidad de dormitorios</label>
+            <input type="number" name="dormitorios" id="dormitorios" placeholder="3">
+        </div>
+        <div>
+            <label for="banos">Cantidad de baños</label>
+            <input type="number" name="banos" id="banos" placeholder="2">
+        </div>
+        <div>
+            <label for="cama_matrimonial">Cantidad de camas matrimoniales</label>
+            <input type="number" name="cama_matrimonial" id="cama_matrimonial" placeholder="1">
+        </div>
+        <div>
+            <label for="cama_individual">Cantidad de camas individuales</label>
+            <input type="number" name="cama_individual" id="cama_individual" placeholder="4">
+        </div>
+        <div>
+            <label for="descripcion">Descripción de la habitación</label>
+            <input type="text" name="descripcion" id="descripcion" placeholder="Habitación para una familia con 4 hijos">
+        </div>
+        <div>
+            <label for="precio">Precio por noche</label>
+            <input type="number" name="precio" id="precio" placeholder="60000">
+        </div>
+        <div>
+            <label for="estado_habi_id_estado_habi">Estado de la habitación</label>
+            <select name="estado_habi_id_estado_habi" id="estado_habi_id_estado_habi">
+                {% for i in estado_habi %}
+                <option value="{{ i.id_estado_habi }}">{{ i.Estado_habitacion }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" placeholder="Crear">
+    </form>
+</body>
+</html>

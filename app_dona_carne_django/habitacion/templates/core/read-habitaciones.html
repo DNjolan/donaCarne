@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Administrador de habitaciones</h1>
+    <a href="{% url 'inicio' %}">Inicio</a>
+    <a href="{% url 'crear-habitaciones' %}">Crear habitación</a>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Dormitorios</th>
+            <th>Baños</th>
+            <th>Cama matrimonial</th>
+            <th>Cama individual</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Estado habitación</th>
+            <th>ID Empleado registro</th>
+        </tr>
+        {% for i in habitaciones %}
+        <tr>
+            <td>{{ i.id_reg_habi }}</td>
+            <td>{{ i.Dormitorios }}</td>
+            <td>{{ i.Baños }}</td>
+            <td>{{ i.Cama_matrimonial }}</td>
+            <td>{{ i.Cama_individual }}</td>
+            <td>{{ i.Descripcion }}</td>
+            <td>{{ i.Precio }}</td>
+            {% for e in estado_habi %}
+            {% if i.Estado_habi_id_estado_habi == e.id_estado_habi %}
+            <td>{{ e.Estado_habitacion }}</td>
+            {% endif %}
+            {% endfor %}
+            {% for e in empleado %}
+            {% if i.Empleado_id_emplado == e.id_emplado %}
+            <td>{{ e.Nombre }}</td>
+            {% endif %}
+            {% endfor %}
+            <td><a href="{% url 'actualizar-habitaciones' i.id_reg_habi %}">Actualizar habitación</a></td>
+            <td><a href="{% url 'eliminar-habitaciones' i.id_reg_habi %}">Eliminar habitación</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

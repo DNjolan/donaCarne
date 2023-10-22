@@ -78,15 +78,3 @@ def registrar_empleado(request):
                 else:
                     return render (request, 'core/registrar-empleado.html', datos)      
     return render (request, 'core/registrar-empleado.html', datos)
-
-def visualizar_habitaciones(request):
-    return render(request, 'core/read-habitaciones.html')
-
-def crear_habitaciones(request):
-    return render(request, 'core/create-habitaciones.html')
-
-def actualizar_habitaciones(request, id):
-    return render(request, 'core/update-habitaciones.html')
-
-def eliminar_habitaciones(request, id):
-    return redirect('visualizar-habitaciones')

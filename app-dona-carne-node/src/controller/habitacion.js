@@ -5,31 +5,32 @@ export class HabitacionController {
     // Obtener todas las habitaciones
     getAllHabitaciones = async (req, res) => {
         const resultado = await HabitacionDao.daoGetAllHabitacion()
-        if (resultado) return res.json(resultado[0])
+        if (resultado) return res.json(resultado)
         return res.json({mensaje: 'No existen habitaciones'})
     }
 
     getIDHabitacion = async (req, res) => {
         const id_reg_habi = req.query.id_reg_habi
-
         const resultado = await HabitacionDao.daoGetForIDHabitacion({id_reg_habi})
         if (resultado) return res.json(resultado[0])
         return res.json({mensaje: 'No existe habitación'})
     }
 
     postHabitacion = async (req, res) => {
-        const dormitorios = req.query.dormitorios
-        const banos = req.query.banos
-        const cama_matrimonial = req.query.cama_matrimonial
-        const cama_individual = req.query.cama_individual
-        const descripcion = req.query.descripcion
-        const precio = req.query.precio
-        const estado_habi_id_estado_habi = req.query.estado_habi_id_estado_habi
-        const empleado_id_emplado = req.query.empleado_id_emplado
+        const dormitorios = req.body.dormitorios
+        const banos = req.body.banos
+        const cama_matrimonial = req.body.cama_matrimonial
+        const cama_individual = req.body.cama_individual
+        const descripcion = req.body.descripcion
+        const precio = req.body.precio
+        const estado_habi_id_estado_habi = req.body.estado_habi_id_estado_habi
+        const empleado_id_emplado = req.body.empleado_id_emplado
 
-        const correo = req.query.correo
-        const contrasena = req.query.contrasena
+        const correo = req.body.correo
+        const contrasena = req.body.contrasena
         const permiso = await EmpleadoDao.daoGetUsuarioLogin({ correo, contrasena})
+
+
 
         if (permiso) {
             const idPermiso = permiso[0].Rol_id_rol
@@ -42,8 +43,6 @@ export class HabitacionController {
                 estado_habi_id_estado_habi,
                 empleado_id_emplado
             })
-            console.log(idPermiso);
-            console.log(resultado);
             if (resultado && idPermiso === 1 || idPermiso === 2) {
                 return res.json({mensaje: 'Registrado con exito'})
             } else {
@@ -55,18 +54,20 @@ export class HabitacionController {
     }
     
     updateHabitacion = async (req, res) => {
-        const dormitorios = req.query.dormitorios
-        const banos = req.query.banos
-        const cama_matrimonial = req.query.cama_matrimonial
-        const cama_individual = req.query.cama_individual
-        const descripcion = req.query.descripcion
-        const precio = req.query.precio
-        const estado_habi_id_estado_habi = req.query.estado_habi_id_estado_habi
-        const empleado_id_emplado = req.query.empleado_id_emplado
-        const id_reg_habi = req.query.id_reg_habi
+        const dormitorios = req.body.dormitorios
+        const banos = req.body.banos
+        const cama_matrimonial = req.body.cama_matrimonial
+        const cama_individual = req.body.cama_individual
+        const descripcion = req.body.descripcion
+        const precio = req.body.precio
+        const estado_habi_id_estado_habi = req.body.estado_habi_id_estado_habi
+        const empleado_id_emplado = req.body.empleado_id_emplado
+        const id_reg_habi = req.body.id_reg_habi
 
-        const correo = req.query.correo
-        const contrasena = req.query.contrasena
+        console.log(req.body);
+
+        const correo = req.body.correo
+        const contrasena = req.body.contrasena
         const permiso = await EmpleadoDao.daoGetUsuarioLogin({ correo, contrasena})
 
         if (permiso) {
@@ -81,10 +82,9 @@ export class HabitacionController {
                 empleado_id_emplado,
                 id_reg_habi
             })
-            console.log(idPermiso);
             console.log(resultado);
             if (resultado && idPermiso === 1 || idPermiso === 2) {
-                return res.json({mensaje: 'Registrado con exito'})
+                return res.json({mensaje: 'Actualizado con exito'})
             } else {
                 return res.json({mensaje: 'Error al registrar'})
             }
@@ -94,24 +94,28 @@ export class HabitacionController {
     }
     
     deleteHabitacion = async (req, res) => {
-        const id_reg_habi = req.query.id_reg_habi
+        const id_reg_habi = req.body.id_reg_habi
 
-        const correo = req.query.correo
-        const contrasena = req.query.contrasena
+        const correo = req.body.correo
+        const contrasena = req.body.contrasena
         const permiso = await EmpleadoDao.daoGetUsuarioLogin({ correo, contrasena})
 
         if (permiso) {
             const idPermiso = permiso[0].Rol_id_rol
             const resultado = await HabitacionDao.daoDeleteHabitacion({id_reg_habi})
-            console.log(idPermiso);
-            console.log(resultado);
             if (resultado && idPermiso === 1 || idPermiso === 2) {
-                return res.json({mensaje: 'Registrado con exito'})
+                return res.json({mensaje: 'Eliminado con exito'})
             } else {
                 return res.json({mensaje: 'Error al registrar'})
             }
         } else {
             return res.json({mensaje: 'Error al registrar'})
         }
+    }
+
+    getAllEstadoHabit = async (req, res) => {
+        const resultado = await HabitacionDao.daoGetAllEstadoHabi()
+        if (resultado) return res.json(resultado)
+        return res.json({mensaje: 'No existen estados'})
     }
 }

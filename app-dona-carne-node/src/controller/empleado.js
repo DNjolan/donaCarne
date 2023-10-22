@@ -21,9 +21,7 @@ export class EmpleadoController {
         if(permiso){
             const idPermiso = permiso[0].Rol_id_rol
             const empleado = await EmpleadoDao.daoGetEmpleadoAll()
-            console.log(idPermiso);
-            console.log(empleado);
-            if (empleado && idPermiso === 1) return res.json(empleado)
+            if (empleado && idPermiso === 1 || idPermiso === 2) return res.json(empleado)
         }else{
             return res.json({ mensaje: 'No existen empleados' })
         }

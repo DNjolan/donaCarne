@@ -11,4 +11,6 @@ app_dona_carne_django/huesped/__pycache__
 app_dona_carne_django/inicio/migrations
 app_dona_carne_django/inicio/__pycache__
 
+app_dona_carne_django/habitacion/migrations
+
 app_dona_carne_django/db.dona_carne_django

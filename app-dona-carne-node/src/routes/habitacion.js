@@ -22,5 +22,7 @@ export const createHabitacionRouter = () => {
     // Eliminar habitación
     habitacionRouter.delete('/eliminar-habitacion', habitacionController.deleteHabitacion)
 
+    habitacionRouter.get('/obtener-todos-los-estados', habitacionController.getAllEstadoHabit)
+
     return habitacionRouter
 }
