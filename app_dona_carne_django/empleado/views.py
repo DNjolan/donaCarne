@@ -16,11 +16,11 @@ def view_inicio_sesion(request):
             datos = {'correo': correo, 'contrasena': contrasena}
             
             resultado = inicio_sesion(datos)
-            print(resultado)
             if resultado.get('mensaje' == 'No existe'):
                 return render (request, 'core/inicio-sesion.html')
             else:
                 request.session['usuario'] = resultado
+                print(resultado)
                 return redirect('inicio')
         else:
             return render (request, 'core/inicio-sesion.html')

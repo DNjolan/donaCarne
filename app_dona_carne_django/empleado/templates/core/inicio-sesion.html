@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>Inicio sesión</h1>
+    <a href="{% url 'inicio' %}">Inicio</a>
+    <br>
+    <br>
     <form action="{% url 'inicio-sesion' %}" method="POST">
         {% csrf_token %}
         <label for="correo">Correo</label>

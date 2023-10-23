@@ -8,6 +8,8 @@
 <body>
     <h1>Registrar empleado</h1>
     <a href="{% url 'inicio' %}">Inicio</a>
+    <br>
+    <br>
     <form action="{% url 'registrar_empleado' %}" method="POST">
         {% csrf_token %}
         <div>
