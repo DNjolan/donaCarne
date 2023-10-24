@@ -21,7 +21,13 @@ export const createEmpleadoRouter = () =>{
     empleadoRouter.post('/registrar-empleado', empleadoController.postRegistrarEmpleado)
 
     // Registrar parametros({id_categoria, Categoria})
-    empleadoRouter.post('/ordenes',empleadoController.postRegistrarCategoria)
+    empleadoRouter.post('/registrar-ordenes',empleadoController.postRegistrarCategoria)
+
+    //Obtener todas las categorias
+    empleadoRouter.get('/ver-ordenes',empleadoController.getAllCategoria)
+    
+    //Registrar Producto
+    empleadoRouter.get('/registrar-producto',empleadoController.postRegistrarProducto)
 
     return empleadoRouter
 }

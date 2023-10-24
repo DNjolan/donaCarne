@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'registrar-plato'%}" method="POST">
+        {% csrf_token %}
+            <div>
+                <label for="id_plato">Id plato</label>
+                <input type="number" name="id_plato" id="id_plato" placeholder="00000">
+            </div>
+            <div>
+                <label for="Nombre_plato">Nombre plato</label>
+                <input type="text" name="Nombre_plato" id="Nombre_plato" placeholder="platoducto">
+            </div>
+            <div>
+                <label for="Valor">Valor plato</label>
+                <input type="number" name="Valor" id="Valor" placeholder="1000">
+            </div>
+            <div>
+                <label for="Descripcion">Descripción plato</label>
+                <input type="text" name="Descripcion" id="Descripcion" placeholder="Descripcion">
+            </div>
+            <div>
+                <label for="Empleado_id_emplado">id emp</label>
+                <input type="number" name="Empleado_id_emplado" id="Empleado_id_emplado" placeholder="Empleado_id_emplado">
+            </div>
+            <div>
+                <label for="plato_orien_id_plato_orien">id plato rientado</label>
+                <input type="number" name="plato_orien_id_plato_orien" id="plato_orien_id_plato_orien" placeholder="plato_orien_id_plato_orien">
+            </div>
+            <div>
+                <label for="Tipo_plato_id_tipo_plato">id tipo plato</label>
+                <input type="number" name="Tipo_plato_id_tipo_plato" id="Tipo_plato_id_tipo_plato" placeholder="Tipo_plato_id_tipo_plato">
+            </div>
+            <input type="submit" placeholder="Crear">
+    </form>
+</body>
+</html>

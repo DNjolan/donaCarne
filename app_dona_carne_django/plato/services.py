@@ -1,40 +1,7 @@
 import requests
-import json
-def inicio_sesion(datos):
-    url = 'http://localhost:1234/empleado/inicio-sesion'
-    respuesta = requests.get(url, datos)
-    
-    if respuesta.status_code == 200:
-        try:
 
-            data = respuesta.json()
-            return data
-        except requests.exceptions.RequestException as err:
-            return None
-        # ({'error: ': str(err)}, status=500)
-    else:
-        print('error')
-        return
-
-def emp_post_categoria(datos):
-    url = 'http://localhost:1234/empleado/registrar-ordenes'
-    respuesta = requests.post(url, json=datos)
-    print(respuesta)
-
-    if respuesta.status_code == 200:
-        try:
-            data = respuesta.json()
-            print('Data received:', data)
-            return data
-        except requests.exceptions.RequestException as err:
-            print('JSON Parsing Error:', err)
-            return None
-    else:
-        print('HTTP Error:', respuesta.status_code)
-        return None 
-    
-def emp_get_all_categoria():
-    url = 'http://localhost:1234/empleado/ver-ordenes'
+def get_all_platos():
+    url = 'http://localhost:1234/plato/ver-platos'
     respuesta = requests.get(url)
     
     if respuesta.status_code == 200:
@@ -48,21 +15,51 @@ def emp_get_all_categoria():
     else:
         print('error')
         return
-    
-def emp_post_producto(datos):
-    url = 'http://localhost:1234/empleado/registrar-producto'
-    respuesta = requests.post(url, json=datos)
-    print(respuesta)
 
+
+def post_plato(datos):
+    url = 'http://localhost:1234/plato/registrar-plato'
+    respuesta = requests.post(url, json = datos)
+    print('Respuesta post plato: ', respuesta)
     if respuesta.status_code == 200:
         try:
+
             data = respuesta.json()
-            print('Data received:', data)
             return data
         except requests.exceptions.RequestException as err:
-            print('JSON Parsing Error:', err)
+            print('Error de conexión: ', err)
             return None
     else:
-        print('HTTP Error:', respuesta.status_code)
-        return None 
+        print('error')
+        return
 
+def upd_plato(datos):
+    url = 'http://localhost:1234/plato/act-plato'
+    respuesta = requests.put(url, json = datos)
+    if respuesta.status_code == 200:
+        try:
+
+            data = respuesta.json()
+            return data
+        except requests.exceptions.RequestException as err:
+            print('Error de conexión: ', err)
+            return None
+    else:
+        print('error')
+        return
+
+def del_plato(datos):
+    url = 'http://localhost:1234/plato/delete-plato'
+    respuesta = requests.delete(url, json = datos)
+    print('Respuesta delete plato: ', respuesta)
+    if respuesta.status_code == 200:
+        try:
+
+            data = respuesta.json()
+            return data
+        except requests.exceptions.RequestException as err:
+            print('Error de conexión: ', err)
+            return None
+    else:
+        print('error')
+        return

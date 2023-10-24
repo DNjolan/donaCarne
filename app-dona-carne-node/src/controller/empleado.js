@@ -71,38 +71,55 @@ export class EmpleadoController {
 
     postRegistrarCategoria = async (req, res) => {
         const Categoria = req.body.Categoria;
-        const id_categoria = req.body.id_categoria;
+        // const id_categoria = req.body.id_categoria;
         try {
-            const registro_cat = await EmpleadoDao.daoPostRegistrarCategoria({ id_categoria,Categoria });
+            const registro_cat = await EmpleadoDao.daoPostRegistrarCategoria({ Categoria });
     
             if (registro_cat === 0) {
                 console.log('Categoria registrada');
-                return res.json({ mensaje: 'Error al registrar Categoria' });
+                return res.json({ mensaje: 'Categoria registrada' });
             } else {
                 console.log('Error al registrar Categoria');
-                return res.json({ mensaje: 'Categoria registrada' });
+                return res.json({ mensaje: 'Error al registrar Categoria' });
             }
         } catch (error) {
             console.log('Databse error');
             console.error('Database Error:', error);
             return res.status(500).json({ mensaje: 'Error de base de datos' });
     }
-    
-    
-    
-    
+
+    }
+
+    postRegistrarProducto = async(req, res) => {
+        const id_producto = req.body.id_producto;
+        const Nombre_pro = req.body.Nombre_pro;
+        const Valor_pro = req.body.Valor_pro;
+        const Imagen_pro = req.body.Imagen_pro;
+        const Descripcion_pro = req.body.Descripcion_pro;
+        const Cate_producto_id = req.body.Cate_producto_id;
         
-        // if(permiso){
-        //     const idPermiso = permiso[0].Rol_id_rol
-        //     const registro_cat = await EmpleadoDao.daoPostRegistrarCategoria({id_categoria,Categoria})
-        //     if (registro_cat && idPermiso == 1){
-        //         return res.json({mensaje: 'Categoria registrada'})
-        //     }else{
-        //         return res.json({mensaje:'Error al registrar Categoria'})
-        //     }
-        // }else{
-        //     return res.json({mensaje:'Error al registrar Categoria -1'})
-        // }
+        try {
+            const registro_cat = await EmpleadoDao.daoPostRegistrarProducto({ id_producto,Nombre_pro,Valor_pro,Imagen_pro,Descripcion_pro,Cate_producto_id});
+            if (registro_cat === 0) {
+                console.log('Categoria registrada');
+                return res.json({ mensaje: 'Categoria registrada' });
+            } else {
+                console.log('Error al registrar Categoria');
+                return res.json({ mensaje: 'Error al registrar Categoria' });
+            }
+        } catch (error) {
+            console.log('Databse error');
+            console.error('Database Error:', error);
+            return res.status(500).json({ mensaje: 'Error de base de datos' });
+        }
+    
+    }
+
+    getAllCategoria = async (req, res) => {
+        const resultado = await EmpleadoDao.daoGetAllCategorias()
+        if (resultado) return res.json(resultado)
+        return res.json({mensaje: 'No existen categoria'})
+
     }
 
 

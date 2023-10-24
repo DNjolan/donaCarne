@@ -10,22 +10,61 @@
     <p>Ingresa la información para cada categoría</p>
     <form action="{% url 'ordenes' %}" method="post">
         {% csrf_token %}
-        <label for="id_categoria">id categoria</label>
-        <input type="number" id="id_categoria" name="id_categoria" placeholder="XXX00000"><br>
+        <!-- <label for="id_categoria">id categoria</label>
+        <input type="number" id="id_categoria" name="id_categoria" placeholder="XXX00000"><br> -->
         
         <label for="Categoria">Nombre Categoria</label>
         <input type="text" id="Categoria" name="Categoria" placeholder="Categoria"><br>
 
-        <input type="submit" placeholder="guardar">
+        <input type="submit" value="guardar">
     </form>
-    
-    <!-- Category Option List  -->
+
     <label for="Categoria">Nombre Categoria</label>
-    <select id="Categoria" name="Categoria">
-        <option value=""></option>
-        {% for i in Categoria %}
-            <option value="{{i.id_categoria}}">{{ i.Categoria }} ,,</option>
+    <select id="Categoria" name="Categoria" required>
+        <option value="" selected disabled>Selecciona una categoría</option>
+        {% for categoria in Categorias %}
+            <option value="{{ categoria.id_categoria }}">{{ categoria.Categoria }}</option>
         {% endfor %}
-    </select><br>
+    </select><br><br><br><br>
+
+    
+        <!-- <table>
+            <tr>o</tr>
+            {% for i in Categorias %}
+            <td>. {{ i.Categoria }}</td>
+        {% endfor %}
+        </table>-->
+
+        <form action="{% url 'ordenes' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="id_producto">Id Producto</label>
+                <input type="number" name="id_producto" id="id_producto" placeholder="00000">
+            </div>
+            <div>
+                <label for="Nombre_pro">Nombre Producto</label>
+                <input type="text" name="Nombre_pro" id="Nombre_pro" placeholder="producto">
+            </div>
+            <div>
+                <label for="Valor_pro">Valor producto</label>
+                <input type="number" name="Valor_pro" id="Valor_pro" placeholder="1">
+            </div>
+            <div>
+                <label for="Imagen_pro">Imagen producto</label>
+                <input type="number" name="Imagen_pro" id="Imagen_pro" placeholder="4">
+            </div>
+            <div>
+                <label for="Descripcion_pro">Descripción producto</label>
+                <input type="text" name="Descripcion_pro" id="Descripcion_pro" placeholder="Habitación para una familia con 4 hijos">
+            </div>
+            <label for="Cate_producto_id">Nombre Categoria</label>
+            <select id="Cate_producto_id" name="Cate_producto_id" required>
+                <option value="" selected disabled>Selecciona una categoría</option>
+                {% for categoria in Categorias %}
+                    <option value="{{ categoria.id_categoria }}">{{ categoria.Categoria }}</option>
+                {% endfor %}
+            </select><br>
+            <input type="submit" placeholder="Crear">
+        </form>
 </body>
 </html>
