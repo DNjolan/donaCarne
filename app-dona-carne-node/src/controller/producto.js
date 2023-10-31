@@ -97,9 +97,9 @@ export class productoController {
     postRegistrarOrdenProducto = async(req, res) => {
         const Cantidad = req.body.Cantidad
         const Valor_total = req.body.Valor_total
-        const Orden_pedido_id_pedido = req.body.Orden_pedido_id_pedido
+        // const Orden_pedido_id_pedido = req.body.Orden_pedido_id_pedido
         const Producto_id_producto = req.body.Producto_id_producto
-        const registro = await ProductoDao.daoPostOrdenProducto({Cantidad, Valor_total, Orden_pedido_id_pedido, Producto_id_producto});
+        const registro = await ProductoDao.daoPostOrdenProducto({Cantidad, Valor_total,Producto_id_producto});
         if (registro === 0) {
             console.log('Orden registrada');
             return res.json({ mensaje: 'Orden registrada' });

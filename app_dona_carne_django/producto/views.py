@@ -77,13 +77,14 @@ def borrar_producto(request, id):
     return redirect('edit-productos')
 
 def view_ordenes(request):
-    productos = get_all_productos()
     ordenes = all_ordenes()
+    productos = get_all_productos()
+
     data = {
-        'productos': productos,
         'ordenes' : ordenes,
+        'productos': productos
     }
-    return render(request, 'core/ordenes.html', data)
+    return render(request, 'core/lista-ordenes.html' , data)
 
 def generar_orden(request):
     productos = get_all_productos()
@@ -93,12 +94,12 @@ def generar_orden(request):
     if request.method == 'POST':
         Cantidad = request.POST["Cantidad"]
         Valor_total = request.POST["Valor_total"]
-        Orden_pedido_id_pedido = request.POST["Orden_pedido_id_pedido"]
+        # Orden_pedido_id_pedido = request.POST["Orden_pedido_id_pedido"]
         Producto_id_producto = request.POST["Producto_id_producto"]
         datos = {
             'Cantidad':Cantidad,
             'Valor_total':Valor_total,
-            'Orden_pedido_id_pedido':Orden_pedido_id_pedido,
+            # 'Orden_pedido_id_pedido':Orden_pedido_id_pedido,
             'Producto_id_producto':Producto_id_producto
         }
         post_orden(datos)

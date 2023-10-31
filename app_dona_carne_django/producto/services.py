@@ -102,7 +102,7 @@ def get_all_categoria():
 
 
 def all_ordenes():
-    url = 'http://localhost:1234/producto/ordenes'
+    url = 'http://localhost:1234/producto/ver-ordenes'
     respuesta = requests.get(url)
     if respuesta.status_code == 200:
         try:

@@ -145,10 +145,10 @@ export class ProductoDao {
 
     
 	// Dao - Crear una Orden de Producto
-	static async daoPostOrdenProducto ({Cantidad, Valor_total, Orden_pedido_id_pedido, Producto_id_producto}){
+	static async daoPostOrdenProducto ({Cantidad, Valor_total, Producto_id_producto}){
         try {
-            const resultado = await conexion.query(`INSERT INTO orden_ped_prod(Cantidad,Valor_total,Orden_pedido_id_pedido,Producto_id_producto)VALUES(?,?,?,?)`,
-            [Cantidad, Valor_total, Orden_pedido_id_pedido, Producto_id_producto]);
+            const resultado = await conexion.query(`INSERT INTO orden_ped_prod(Cantidad,Valor_total,Producto_id_producto)VALUES(?,?,?)`,
+            [Cantidad, Valor_total,Producto_id_producto]);
             return resultado[0];
         } catch (err) {
             console.log('Error', err);

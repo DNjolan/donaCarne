@@ -19,10 +19,10 @@
         {% for i in ordenes %}
         <tr>
             <td>{{i.Producto_id_producto}}</td>
-            <td>{{i.Producto_id_producto.Nombre_pro }}</td>
+            <td>{{ i.Producto_id_producto.Nombre_pro }}</td>
             <td>{{i.Cantidad}}</td>
             <td>{{i.Valor_total}}</td>
-            <td>{{i.Orden_pedido_id_pedido}}</td>
+            <!-- <td>{{i.Orden_pedido_id_pedido}}</td> -->
         </tr>
         {% endfor %}
     </table></center>

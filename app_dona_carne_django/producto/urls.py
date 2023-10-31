@@ -8,6 +8,6 @@ urlpatterns = [
     # path('upd-producto/<id>', edit_producto, name="upd-producto" ),
     path('del-producto/<id>', borrar_producto, name="del-producto" ),
     path('new-orden', generar_orden, name="new-orden" ),
-    path('ordenes', view_ordenes, name="ordenes" ),
+    path('ver-ordenes', view_ordenes, name="ver-ordenes" ),
 
 ]   

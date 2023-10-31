@@ -27,13 +27,13 @@ export const createProductoRouter = () =>{
 
 
     // ------------------ Orden de Producto
-    productoRouter.get('ordenes', ProductoController.getAllOrdenProductos)
+    productoRouter.get('/ver-ordenes', ProductoController.getAllOrdenProductos)
 
-    productoRouter.post('registrar-orden', ProductoController.postRegistrarOrdenProducto)
-    
-    productoRouter.put('act-orden', ProductoController.updateOrdenProducto)
+    productoRouter.post('/registrar-orden', ProductoController.postRegistrarOrdenProducto)
 
-    productoRouter.delete('del-orden',ProductoController.deleteOrdenProducto)
+    productoRouter.put('/act-orden', ProductoController.updateOrdenProducto)
+
+    productoRouter.delete('/del-orden',ProductoController.deleteOrdenProducto)
 
     return productoRouter
 

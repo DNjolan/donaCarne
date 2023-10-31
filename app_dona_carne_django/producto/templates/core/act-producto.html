@@ -25,7 +25,6 @@
                     <input type="text" name="Nombre_pro" id="Nombre_pro" value="{{ producto.Nombre_pro }}">
                 </td>
                 <td>
-                    <label for="Valor_pro">Valor</label>
                     <input type="number" name="Valor_pro" id="Valor_pro" value="{{ producto.Valor_pro }}">
                 </td>
                 <td>
@@ -44,7 +43,7 @@
                 <td>
                     <input type="submit" name="action" value="Actualizar">
                 </td>
-                <td><button><a href="{% url 'del-producto' producto.id_producto  %}">Eliminar</a></button></td>                
+                <td><button><a href="{% url 'del-producto' producto.id_producto  %}" onclick="return confirm('Are you sure you want to delete this product?')">Eliminar</a></button></td>                
             </tr>
         </form>
         {% endfor %}
