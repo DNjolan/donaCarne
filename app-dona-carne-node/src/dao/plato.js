@@ -11,85 +11,27 @@ export class PlatoDao {
     }
 
     //Registrar plato
-    static async daoPostPlato({id_plato,
-                                Nombre_Plato,
-                                Valor,
-                                Descripcion,
-                                Empleado_id_emplado,
-                                plato_orien_id_plato_orien,
-                                Tipo_plato_id_tipo_plato}){
+    static async daoPostRegistrarPlato({Nombre_Plato, Valor, Descripcion,
+        Empleado_id_emplado, plato_orien_id_plato_orien, Tipo_plato_id_tipo_plato}){
         try{
             const resultado = await conexion.query(
-                `INSERT INTO reg_habitacion(id_plato,
-                    Nombre_Plato,
-                    Valor,
-                    Descripcion,
-                    Empleado_id_emplado,
-                    plato_orien_id_plato_orien,
-                    Tipo_plato_id_tipo_plato)
+                `INSERT INTO plato(Nombre_Plato,
+                    Valor, Descripcion, Empleado_id_emplado,
+                    plato_orien_id_plato_orien, Tipo_plato_id_tipo_plato)
                     VALUES(?,
-                    ?,
-                    ?,
-                    ?,
-                    ?,
-                    ?,
-                    ?);`,
+                        ?,
+                        ?,
+                        ?,
+                        ?,
+                        ?);`,
                     [
-                        id_plato,
-                        Nombre_Plato,
-                        Valor,
-                        Descripcion,
-                        Empleado_id_emplado,
-                        plato_orien_id_plato_orien,
-                        Tipo_plato_id_tipo_plato
+                        Nombre_Plato, Valor, Descripcion, Empleado_id_emplado,
+                        plato_orien_id_plato_orien, Tipo_plato_id_tipo_plato
                     ]
             )
-            console.log('Insert Result:', resultado[0]);
             return resultado[0]
         }catch (err) {
-            console.error('Error in daoPostRegistrarPlato:', error);
-            return 0
-        }
-    }
-
-    //Registrar plato
-    static async daoPostRegistrarPlato({id_plato,
-                                Nombre_Plato,
-                                Valor,
-                                Descripcion,
-                                Empleado_id_emplado,
-                                plato_orien_id_plato_orien,
-                                Tipo_plato_id_tipo_plato}){
-        try{
-            const resultado = await conexion.query(
-                `INSERT INTO plato(id_plato,
-                    Nombre_Plato,
-                    Valor,
-                    Descripcion,
-                    Empleado_id_emplado,
-                    plato_orien_id_plato_orien,
-                    Tipo_plato_id_tipo_plato)
-                    VALUES(?,
-                    ?,
-                    ?,
-                    ?,
-                    ?,
-                    ?,
-                    ?);`,
-                    [
-                        id_plato,
-                        Nombre_Plato,
-                        Valor,
-                        Descripcion,
-                        Empleado_id_emplado,
-                        plato_orien_id_plato_orien,
-                        Tipo_plato_id_tipo_plato
-                    ]
-            )
-            console.log('Insert Result:', resultado[0]);
-            return resultado[0]
-        }catch (err) {
-            console.error('Error in daoPostRegistrarPlato:', error);
+            console.error('Error in daoPostRegistrarPlato:', err);
             return 0
         }
     }

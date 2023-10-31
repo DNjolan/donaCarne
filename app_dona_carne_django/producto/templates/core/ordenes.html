@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ordenes</title>
+</head>
+<body>
+    <center><h1>Ordenes registradas</h1></center>
+    <center><button><a href="{% url 'new-orden'%}">Registrar una nueva orden de pedido</a></button></center>
+    <center><table>
+        <tr>
+            <th>id producto</th>
+            <th>Nombre producto</th>
+            <th>Cantidad</th>
+            <th>Valor Total</th>
+            <th>id Pedido</th>
+        </tr>
+        {% for i in ordenes %}
+        <tr>
+            <td>{{i.Producto_id_producto}}</td>
+            <td>{{i.Producto_id_producto.Nombre_pro }}</td>
+            <td>{{i.Cantidad}}</td>
+            <td>{{i.Valor_total}}</td>
+            <td>{{i.Orden_pedido_id_pedido}}</td>
+        </tr>
+        {% endfor %}
+    </table></center>
+</body>
+</html>

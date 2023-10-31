@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Producto
-        
-    </title>
+    <title>Actualizar Producto</title>
 </head>
 <body>
-    
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Producto</th>
+            <th>Valor</th>
+            <th>Descripcion</th>
+            <th>Modificar categoria</th>
+        </tr>
+        {% for producto in productos %}
+        <form action="{% url 'edit-productos' %}" method="post">
+            {% csrf_token %}
+            <tr>
+                <td>
+                    <p name="id_producto" id="id_producto" value="{{ producto.id_producto }}">{{ producto.id_producto }}</p>
+                </td>
+                <td>
+                    <input type="text" name="Nombre_pro" id="Nombre_pro" value="{{ producto.Nombre_pro }}">
+                </td>
+                <td>
+                    <label for="Valor_pro">Valor</label>
+                    <input type="number" name="Valor_pro" id="Valor_pro" value="{{ producto.Valor_pro }}">
+                </td>
+                <td>
+                    <input type="text" name="Descripcion_pro" id="Descripcion_pro" value="{{ producto.Descripcion_pro }}">
+                </td>
+                <td>
+                    <select id="Cate_producto_id_categoria" name="Cate_producto_id_categoria" required>
+                        <option value="" selected disabled>Selecciona una categoría</option>
+                        {% for categoria in Categorias %}
+                            <option value="{{ categoria.id_categoria }}" {% if categoria.id_categoria == producto.Cate_producto_id %}selected{% endif %}>
+                                {{ categoria.Categoria }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" name="action" value="Actualizar">
+                </td>
+                <td><button><a href="{% url 'del-producto' producto.id_producto  %}">Eliminar</a></button></td>                
+            </tr>
+        </form>
+        {% endfor %}
+    </table>    
 </body>
 </html>

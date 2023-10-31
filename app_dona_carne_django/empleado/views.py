@@ -24,28 +24,4 @@ def view_inicio_sesion(request):
             return render (request, 'core/inicio-sesion.html')
     return render (request,'core/inicio-sesion.html')
 
-def view_ordenes(request):
-    if request.method == 'POST':
-        Categoria = request.POST["Categoria"]
-        # id_categoria = request.POST["id_categoria"]
-        datos = {'Categoria': Categoria}
-        categorias = emp_get_all_categoria()  # Assuming this function fetches all categories
-
-        # Create a dictionary with the data to pass to the template
-        data = {
-            'datos': datos,
-            'Categorias': categorias,
-        }
-
-        print(datos)
-
-        return render(request, 'core/ordenes.html', data)
-    
-    categorias = emp_get_all_categoria()  # Assuming this function fetches all categories
-
-    data = {
-        'Categorias': categorias,
-    }
-
-    return render(request, 'core/ordenes.html', data) 
 

@@ -73,62 +73,6 @@ export class EmpleadoDao {
         }
     }
 
-        // Registrar Categoria de productos
-        static async daoPostRegistrarCategoria({ Categoria }) {
-            try {
-                const resultado = await conexion.query(
-                    `INSERT INTO cate_producto(Categoria) VALUES (?);`, [Categoria]
-                );
-        
-                // Assuming resultado[0] contains the ID of the inserted record
-                console.log('Insert Result:', resultado[0]);  // Add this line to print the result
-                return resultado[0];
-            } catch (error) {
-                console.error('Error in daoPostRegistrarCategoria:', error);  // Print the error message
-                return 0;
-            }
-        }
-
-        // Obtener todas las categorias creadas por Rodrigo Papá
-        static async daoGetAllCategorias() {
-        const resultado = await conexion.query(
-            'SELECT * FROM cate_producto',
-            
-        )
-        if (resultado[0]) return resultado[0]
-        return null
-    }
-
-        //Registrar Producto
-        static async daoPostRegistrarProducto({id_producto,
-                                                Nombre_pro,
-                                                Valor_pro,
-                                                Imagen_pro,
-                                                Descripcion_pro,
-                                                Cate_producto_id}) {
-            try {
-                const resultado = await conexion.query(
-                    `INSERT INTO producto(id_producto,
-                                            Nombre_pro,
-                                            Valor_pro,
-                                            Imagen_pro,
-                                            Descripcion_pro,
-                                            Cate_producto_id) VALUES (?,?,?,?,?,?);`, [id_producto,
-                                                                                        Nombre_pro,
-                                                                                        Valor_pro,
-                                                                                    Imagen_pro,
-                                                                                Descripcion_pro,
-                                                                            Cate_producto_id]
-                );
-    
-            // Assuming resultado[0] contains the ID of the inserted record
-            console.log('Insert Result:', resultado[0]);  // Add this line to print the result
-            return resultado[0];
-        } catch (error) {
-            console.error('Error in daoPostRegistrarCategoria:', error);  // Print the error message
-            return 0;
-        }
-    }
         
 }
 

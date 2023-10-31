@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { PlatoController } from "../controller/plato.js";
 
-export const createPlatoRouter = () => {
+export const createPlatoRouter = () =>{
     const platoRouter = Router()
     const platoController = new PlatoController()
 

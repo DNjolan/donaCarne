@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'registrar-plato'%}" method="POST">
+    <form action="{% url 'reg-plato' %}" method="post">
         {% csrf_token %}
             <div>
-                <label for="id_plato">Id plato</label>
-                <input type="number" name="id_plato" id="id_plato" placeholder="00000">
-            </div>
-            <div>
-                <label for="Nombre_plato">Nombre plato</label>
-                <input type="text" name="Nombre_plato" id="Nombre_plato" placeholder="platoducto">
+                <label for="Nombre_Plato">Nombre Plato</label>
+                <input type="text" name="Nombre_Plato" id="Nombre_Plato" placeholder="platoducto">
             </div>
             <div>
                 <label for="Valor">Valor plato</label>

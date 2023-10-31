@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar orden</title>
+</head>
+<body>
+    <h1>Generar una orden de pedido</h1>
+    <form action="{% url 'new-orden' %}" method="post">
+        {% csrf_token %}
+        <label for="Producto_id_producto">Producto</label>
+            <select id="Producto_id_producto" name="Producto_id_producto" required>
+                <option value="" selected disabled>Selecciona un producto</option>
+                {% for i in productos %}
+                    <option value="{{ i.id_producto }}"  data-valor="{{ i.Valor_pro }}">{{ i.Nombre_pro }}</option>
+                {% endfor %}
+            </select><br> 
+        <div>
+            <label for="Cantidad">Cantidad</label>
+            <input type="number" name="Cantidad" id="Cantidad" placeholder="1">
+        </div>   
+        <div>
+            <label for="Valor_total">Valor total</label>
+            <input type="number" name="Valor_total" id="Valor_total"  readonly>
+        </div>
+        <div>
+            <label for="Orden_pedido_id_pedido">Orden_pedido_id_pedido</label>
+            <input type="number" name="Orden_pedido_id_pedido" id="Orden_pedido_id_pedido" placeholder="1">
+        </div>
+        <input type="submit" placeholder="Crear Orden de Pedido">    
+    </form>
+</body>
+<script>
+    const cantidadInput = document.getElementById("Cantidad");
+    const valorInput = document.getElementById("Valor_total");
+
+    function updateValor() {
+        // Get the selected product's value using the "valor" data attribute
+        const selectedOption = document.querySelector("#Producto_id_producto option:checked");
+        const productValue = parseFloat(selectedOption.getAttribute("data-valor"));
+
+        const cantidad = parseFloat(cantidadInput.value);
+        const nuevoValor = cantidad * productValue;
+
+        valorInput.value = nuevoValor;
+    }
+
+    cantidadInput.addEventListener("input", updateValor);
+</script>
+
+
+</html>

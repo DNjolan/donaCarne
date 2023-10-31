@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { productoController } from "../controller/producto";
+import { productoController } from "../controller/producto.js";
 
 export const createProductoRouter = () =>{
     const productoRouter = Router()
@@ -19,7 +19,22 @@ export const createProductoRouter = () =>{
     // Routes - Borrar un producto
     productoRouter.delete('/delete-producto', ProductoController.deleteProducto)
 
-    return productoRouter
+    // --------------- Categorias
 
+    // Routes - Registrar parametros({id_categoria, Categoria})
+    productoRouter.post('/registrar-categoria',ProductoController.postRegistrarCategoria)
+    productoRouter.get('/ver-categorias', ProductoController.getAllCategoria)
+
+
+    // ------------------ Orden de Producto
+    productoRouter.get('ordenes', ProductoController.getAllOrdenProductos)
+
+    productoRouter.post('registrar-orden', ProductoController.postRegistrarOrdenProducto)
+    
+    productoRouter.put('act-orden', ProductoController.updateOrdenProducto)
+
+    productoRouter.delete('del-orden',ProductoController.deleteOrdenProducto)
+
+    return productoRouter
 
 }
