@@ -77,4 +77,28 @@ export class PlatoController {
         }
        
     }
-}
+
+    // Controller Registrar Plato Orientado - 1
+    postRegistrarPlatoOrien = async (req, res) => {
+        const plato_orientado = req.body.plato_orientado;
+        const resultado = await PlatoDao.daoPostRegistrarPlatoOrien({plato_orientado})
+    }
+
+// Controller Obtener Plato Orientado - 1
+    getAllPlatoOrien = async (req, res) => {
+        const resultado = await PlatoDao.daoGetAllPlatoOrien()
+        if (resultado) return res.json(resultado)
+        return res.json({mensaje: 'No existen categoria'})
+    }
+
+// Controller Registrar Tipo Plato - 2
+    postRegistrarTipoPlato = async (req, res) => {
+        const Plato_categoria = req.body.Plato_categoria
+        const Plato_menu = req.body.Plato_menu 
+        const resultado = await PlatoDao.daoPostRegistrarTipoPlato({Plato_categoria, Plato_menu})
+    }
+
+// Controller Obtener Tipo Plato - 2
+    getAllTipoPlato = async (req,res) => {
+        const resultado = await PlatoDao.daoGetAllTipoPlato()}
+    }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3> Registrar un plato orientado</h3>
+    <form action="{% url 'crear-plato' %}" method="post">
+        {% csrf_token %}
+        <label for="plato_orientado">Nombre plato_orientado</label>
+        <input type="text" id="plato_orientado" name="plato_orientado" placeholder="plato_orientado"><br>
+        <input type="submit" value="Guardar Plato Orientado">
+    </form><br><br><br>
+    
+</body>
+</html>

@@ -3,5 +3,6 @@ from .views import *
 
 urlpatterns = [
     path('ver-platos/', view_platos, name="ver-platos"),
-    path('reg-plato/', post_platos, name="reg-plato"),
+    path('crear-plato/', crear_plato, name="crear-plato"),
+    path('crear-subplato/', crear_orient, name="crear-subplato"),
 ]

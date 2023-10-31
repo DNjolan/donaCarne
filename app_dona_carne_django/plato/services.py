@@ -63,3 +63,70 @@ def del_plato(datos):
     else:
         print('error')
         return
+
+# ---------------------------subcategorias platos----------------------------
+
+
+def all_plato_orien():
+    url = 'http://localhost:1234/plato/ver-plato-orien'
+    respuesta = requests.get(url)
+    
+    if respuesta.status_code == 200:
+        try:
+            data = respuesta.json()
+            return data
+        except requests.exceptions.RequestException as err:
+            print('Error de conexión: ', err)
+            return None
+    else:
+        print('error')
+        return
+
+
+def post_plato_orien(datos):
+    url = 'http://localhost:1234/plato/new-plato-orien'
+    respuesta = requests.post(url, json = datos)
+    print('Respuesta post producto: ', respuesta)
+    if respuesta.status_code == 200:
+        try:
+
+            data = respuesta.json()
+            return data
+        except requests.exceptions.RequestException as err:
+            print('Error de conexión: ', err)
+            return None
+    else:
+        print('error')
+        return
+
+def all_tipo_platos():
+    url = 'http://localhost:1234/plato/tipos_platos'
+    respuesta = requests.get(url)
+    
+    if respuesta.status_code == 200:
+        try:
+            data = respuesta.json()
+            return data
+        except requests.exceptions.RequestException as err:
+            print('Error de conexión: ', err)
+            return None
+    else:
+        print('error')
+        return
+
+
+def post_tipo_plato(datos):
+    url = 'http://localhost:1234/plato/new-tipo-plato'
+    respuesta = requests.post(url, json = datos)
+    print('Respuesta post producto: ', respuesta)
+    if respuesta.status_code == 200:
+        try:
+
+            data = respuesta.json()
+            return data
+        except requests.exceptions.RequestException as err:
+            print('Error de conexión: ', err)
+            return None
+    else:
+        print('error')
+        return
