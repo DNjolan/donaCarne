@@ -49,11 +49,12 @@ def crear_habitaciones(request):
 
                 if (resultado):
                     return redirect('visualizar-habitaciones')
+                else:
+                    print('Error')
 
             return render(request, 'core/create-habitaciones.html', data)
         else:
             return redirect('inicio')
-    return render(request, 'core/create-habitaciones.html')
 
 def actualizar_habitaciones(request, id):
     usuario = request.session.get('usuario', default=None)

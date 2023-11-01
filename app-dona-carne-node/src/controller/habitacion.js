@@ -30,8 +30,6 @@ export class HabitacionController {
         const contrasena = req.body.contrasena
         const permiso = await EmpleadoDao.daoGetUsuarioLogin({ correo, contrasena})
 
-
-
         if (permiso) {
             const idPermiso = permiso[0].Rol_id_rol
             const resultado = await HabitacionDao.daoPostHabitacion({dormitorios,
@@ -63,8 +61,6 @@ export class HabitacionController {
         const estado_habi_id_estado_habi = req.body.estado_habi_id_estado_habi
         const empleado_id_emplado = req.body.empleado_id_emplado
         const id_reg_habi = req.body.id_reg_habi
-
-        console.log(req.body);
 
         const correo = req.body.correo
         const contrasena = req.body.contrasena
