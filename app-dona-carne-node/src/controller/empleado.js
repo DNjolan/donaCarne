@@ -6,7 +6,7 @@ export class EmpleadoController {
     getUsuarioLogin = async (req, res) => {
         const correo = req.query.correo
         const contrasena = req.query.contrasena
-        const usuario = await EmpleadoDao.daoGetUsuarioLogin({correo, contrasena})
+        const usuario = await EmpleadoDao.daoGetUsuarioLogin({correo, contrasena })
         if (usuario) return res.json(usuario[0])
         return res.json({mensaje:'No existe'})
     }
