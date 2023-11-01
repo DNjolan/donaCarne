@@ -91,11 +91,13 @@ def actualizar_habitaciones(request, id):
 
                 if (resultado):
                     return redirect('visualizar-habitaciones')
+                else:
+                    print('Error: ', resultado)
+                    return None
 
             return render(request, 'core/update-habitaciones.html', data)
         else:
             return redirect('inicio')
-    return render(request, 'core/update-habitaciones.html')
 
 def eliminar_habitaciones(request, id):
     usuario = request.session.get('usuario', default=None)
