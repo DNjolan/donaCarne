@@ -22,6 +22,7 @@ export class ComedorController {
         const Valor = req.query.Valor;
         const Descripcion = req.query.Descripcion;
         const Empleado_id_emplado = req.query.Empleado_id_emplado;
+        const plato_orien_id_plato_orien = req.query.plato_orien_id_plato_orien
         const Tipo_plato_id_tipo_plato = req.query.Tipo_plato_id_tipo_plato;
     
         // Agregar declaraciones de depuración
@@ -30,6 +31,7 @@ export class ComedorController {
         console.log('Valor:', Valor);
         console.log('Descripcion:', Descripcion);
         console.log('Empleado_id_emplado:', Empleado_id_emplado);
+        
         console.log('Tipo_plato_id_tipo_plato:', Tipo_plato_id_tipo_plato);
     
         const correo = req.query.correo;
