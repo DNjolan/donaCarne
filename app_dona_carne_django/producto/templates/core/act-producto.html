@@ -6,6 +6,7 @@
     <title>Actualizar Producto</title>
 </head>
 <body>
+    <p align="left">Módulo Productos</p>
     <table>
         <tr>
             <th>id</th>
@@ -47,6 +48,10 @@
             </tr>
         </form>
         {% endfor %}
-    </table>    
+    </table> 
+    <button><a href="{% url 'new-producto'%}">Crea un nuevo producto</a></button>
+    <button><a href="{% url 'ver-productos'%}">Ver Productos</a></button>   
+    <button><a href="{% url 'ver-ordenes'%}">Ver Ordenes</a></button> 
+    <center><a href="{% url 'index_pro'%}">Regresar</a></center>  
 </body>
 </html>

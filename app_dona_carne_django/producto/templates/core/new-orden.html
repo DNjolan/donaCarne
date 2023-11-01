@@ -6,6 +6,7 @@
     <title>Generar orden</title>
 </head>
 <body>
+    <p align="left">Módulo Productos</p>
     <h1>Generar una orden de pedido</h1>
     <form action="{% url 'new-orden' %}" method="post">
         {% csrf_token %}
@@ -31,6 +32,9 @@
         
         <input type="submit" placeholder="Crear Orden de Pedido">    
     </form>
+    <button><a href="{% url 'ver-productos'%}">Ver Productos</a></button>
+    <button><a href="{% url 'ver-ordenes'%}">Ver Ordenes</a></button>
+    <center><a href="{% url 'index_pro'%}">Regresar</a></center> 
 </body>
 <script>
     const cantidadInput = document.getElementById("Cantidad");

@@ -53,7 +53,7 @@ export class PlatoDao {
                         Descripcion = ?,
                         Empleado_id_emplado = ?,
                         plato_orien_id_plato_orien = ?,
-                        Tipo_plato_id_tipo_plato =?)
+                        Tipo_plato_id_tipo_plato =?
                         WHERE id_plato = ?`,
                         [
                             Nombre_Plato,
@@ -85,9 +85,18 @@ export class PlatoDao {
 
     //-------------------------------------------------------
 
+    // DAO Obtener Tipo Plato - 2
+    static async daoGetAllTipoPlato(){
+        const resultado = await conexion.query(
+            `SELECT * FROM tipo_plato;`
+        )
+        if (resultado[0]) return resultado[0]
+        return null
+    }
+
     // DAO Registrar Plato Orientado - 1
     static async daoPostRegistrarPlatoOrien({plato_orientado}){
-    const resultado = await conexion.query(`INSERT INTO plato_orien(plato_orientado) VALUES (?);`,[plato_orientado]);
+    const resultado = await conexion.query(`INSERT INTO plato_orien(plato_orientado)VALUES(?);`,[plato_orientado]);
     console.log('Insert Result:', resultado[0]);  // Add this line to print the result
         return resultado[0];
         } catch (error) {
@@ -99,16 +108,20 @@ export class PlatoDao {
     // DAO Obtener plato orientado - 1
     static async daoGetAllPlatoOrien(){
     const resultado = await conexion.query('SELECT * FROM plato_orien',)
+    if (resultado[0]) return resultado[0]
+        return null
     }
     
     // DAO Registrar Tipo Plato - 2
     static async daoPostRegistrarTipoPlato({Plato_categoria, Plato_menu}){
-    const resultado = await conexion.query(`INSERT INTO Tipo_plato(Plato_categoria,Plato_menu) VALUES (?,?);`,[Plato_categoria,Plato_menu]);
+    const resultado = await conexion.query(`INSERT INTO tipo_plato(Plato_categoria,Plato_menu) VALUES (?,?);`,[Plato_categoria,Plato_menu]);
+    console.log('Insert Result:', resultado[0]);  // Add this line to print the result
+        return resultado[0];
+        } catch (error) {
+            console.error('Error in daoPostRegistrarCategoria:', error);  // Print the error message
+            return 0;
     }
     
-    // DAO Obtener Tipo Plato - 2
-    static async daoGetAllTipoPlato(){
-    const resultado = await conexion.query('SELECT * FROM Tipo_plato',)
-    }
+    
     
 }

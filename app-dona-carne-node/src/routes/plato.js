@@ -19,8 +19,6 @@ export const createPlatoRouter = () =>{
     // Routes - Borrar un plato
     platoRouter.delete('/delete-plato', platoController.deletePlato)
 
-    // ------------------------------------------------------------
-
     
     // Routes - Ver Plato Orientado - 1
     platoRouter.get('/ver-plato-orien', platoController.getAllPlatoOrien)
@@ -29,7 +27,7 @@ export const createPlatoRouter = () =>{
     platoRouter.post('/new-plato-orien', platoController.postRegistrarPlatoOrien)
 
     // Routes - Ver los tipos de Platos - 2
-    platoRouter.get('/tipos-platos', platoController.getAllTipoPlato)
+    platoRouter.get('/tipo-plato', platoController.getAllTipoPlato)
         
     // Routes - Registrar los tipos de Platos - 2
     platoRouter.post('/new-tipo-plato', platoController.postRegistrarTipoPlato)

@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <p align="left">Módulo Productos</p>
     <center><h2>Listado de productos</h2></center>
     <center><button><a href="{% url 'new-producto' %}">Agregar un nuevo producto</a></button></center>
     <center><table>
@@ -28,5 +29,6 @@
         
     {% endfor %}
     </table></center>
+    <a href="{% url 'index_pro'%}">Regresar</a>
 </body>
 </html>

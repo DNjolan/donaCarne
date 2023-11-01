@@ -36,6 +36,7 @@ def post_plato(datos):
 def upd_plato(datos):
     url = 'http://localhost:1234/plato/act-plato'
     respuesta = requests.put(url, json = datos)
+    print('Respuesta update plato:  ',respuesta)
     if respuesta.status_code == 200:
         try:
 
@@ -99,8 +100,8 @@ def post_plato_orien(datos):
         print('error')
         return
 
-def all_tipo_platos():
-    url = 'http://localhost:1234/plato/tipos_platos'
+def all_tipo_plato():
+    url = 'http://localhost:1234/plato/tipo-plato'
     respuesta = requests.get(url)
     
     if respuesta.status_code == 200:

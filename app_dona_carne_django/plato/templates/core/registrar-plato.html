@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <p align="left">Módulo Platos</p>
     <h3> Registrar un plato orientado</h3>
     <form action="{% url 'crear-plato' %}" method="post">
         {% csrf_token %}
-        <label for="plato_orientado">Nombre plato_orientado</label>
+        <label for="plato_orientado">Plato Orientado a</label>
         <input type="text" id="plato_orientado" name="plato_orientado" placeholder="plato_orientado"><br>
         <input type="submit" value="Guardar Plato Orientado">
     </form><br><br><br>
@@ -18,7 +19,7 @@
     <h3> Registrar un tipo de plato</h3>
     <form action="{% url 'crear-plato' %}" method="post">
         {% csrf_token %}
-        <label for="Plato_categoria">Nombre Plato_categoria</label>
+        <label for="Plato_categoria">Categoria de plato</label>
         <input type="text" id="Plato_categoria" name="Plato_categoria" placeholder="Plato_categoria"><br>
         <label for="Plato_menu">Nombre Plato_menu</label>
         <input type="text" id="Plato_menu" name="Plato_menu" placeholder="Plato_menu"><br>
@@ -41,23 +42,22 @@
                 <label for="Descripcion">Descripción plato</label>
                 <input type="text" name="Descripcion" id="Descripcion" placeholder="Descripcion">
             </div>
-            <div>
-                <label for="Empleado_id_emplado">id emp</label>
-                <input type="number" name="Empleado_id_emplado" id="Empleado_id_emplado" placeholder="Empleado_id_emplado">
-            </div>
+            <label for="plato_orien_id_plato_orien">Selecciona la orientación del plato</label>
             <select id="plato_orien_id_plato_orien" name="plato_orien_id_plato_orien" required>
-                <option value="" selected disabled>Selecciona que plato orientado corresponde</option>
+                <option value="" selected disabled>-</option>
                 {% for i in plato_orien %}
                     <option value="{{ i.id_plato_orien }}">{{ i.plato_orientado }}</option>
                 {% endfor %}
-            </select><br>
+            </select><br> 
+            <label for="Tipo_plato_id_tipo_plato">Selecciona el tipo de plato</label>           
             <select id="Tipo_plato_id_tipo_plato" name="Tipo_plato_id_tipo_plato" required>
-                <option value="" selected disabled>Selecciona el ipo de plato</option>
-                {% for n in tipo_platos %}
-                    <option value="{{ n.id_tipo_plato }}">{{ n.Plato_categoria }}</option>
+                <option value="" selected disabled>-</option>
+                {% for plato in tipo_plato %}
+                    <option value="{{ plato.id_tipo_plato }}">{{ plato.Plato_categoria }}</option>
                 {% endfor %}
             </select><br>
-            <input type="submit" placeholder="Crear">
+            <input type="submit" value="Crear nuevo plato">
     </form>
+    <a href="{% url 'index-platos'%}">Regresar</a>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Ordenes y Productos</title>
 </head>
 <body>
+    <p align="left">Módulo Productos</p>
     <h1>Solicitar productos</h1>
     <p>Ingresa la información para cada categoría</p>
     <form action="{% url 'new-producto' %}" method="post">
@@ -42,6 +43,10 @@
             <input type="submit" placeholder="Crear">
         </form>
     </div>
+    <button><a href="{% url 'ver-productos'%}">Ver Productos</a></button>
+    <button><a href="{% url 'new-orden'%}">Crea una orden</a></button>
+    <center><a href="{% url 'index_pro'%}">Regresar</a></center> 
+
         
 </body>
 </html>

@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from .services import *
 
 # Create your views here.
+def index_productos(request):
+    return render(request, 'core/index-productos.html')
+
 def view_productos(request):
     productos = get_all_productos()
     data = {
