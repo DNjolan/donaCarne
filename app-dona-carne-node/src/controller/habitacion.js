@@ -26,6 +26,8 @@ export class HabitacionController {
         const estado_habi_id_estado_habi = req.body.estado_habi_id_estado_habi
         const empleado_id_emplado = req.body.empleado_id_emplado
 
+        console.log('dormitorios: ', dormitorios);
+
         const correo = req.body.correo
         const contrasena = req.body.contrasena
         const permiso = await EmpleadoDao.daoGetUsuarioLogin({ correo, contrasena})
