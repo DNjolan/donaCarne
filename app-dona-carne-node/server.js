@@ -7,6 +7,9 @@ import { createDatosXRouter } from "./src/routes/obtener_datos_x.js";
 import { createPostDatosXRouter } from "./src/routes/post_datos_x.js";
 import { createHabitacionRouter } from "./src/routes/habitacion.js";
 import { createComedorRouter} from "./src/routes/comedor.js";
+import { createProveedorRouter } from "./src/routes/proveedor.js";
+
+
 const app = express()
 app.use(json())
 app.use(corsMiddleware())
@@ -28,6 +31,8 @@ app.use('/habitacion', createHabitacionRouter())
 // modulo comedor
 app.use('/comedor', createComedorRouter())
 
+// modulo proveedor
+app.use('/proveedor', createProveedorRouter())
 
 app.listen(PORT, () => {
     console.log(`server listening on port http://localhost:${PORT}`)
