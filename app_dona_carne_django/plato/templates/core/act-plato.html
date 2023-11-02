@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p align="left">Módulo Platos</p>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Plato</th>
+            <th>Valor</th>
+            <th>Descripcion</th>
+            <th>Plato Orientado</th>
+            <th>Tipo Plato</th>
+        </tr>
+        {% for i in platos %}
+        <form action="{% url 'edit-plato' %}" method="post">
+            {% csrf_token %}
+            <tr>
+                <td>
+                    <input type="number" name="id_plato" id="id_plato" value="{{ i.id_plato }}">
+                </td>
+                <td>
+                    <input type="text" name="Nombre_Plato" id="Nombre_Plato" value="{{ i.Nombre_Plato }}">
+                </td>
+                <td>
+                    <input type="number" name="Valor" id="Valor" value="{{ i.Valor }}">
+                </td>
+                <td>
+                    <input type="text" name="Descripcion" id="Descripcion" value="{{ i.Descripcion }}">
+                </td>
+                <td>
+                    <select id="plato_orien_id_plato_orien" name="plato_orien_id_plato_orien" required>
+                        <option value="" selected disabled>-</option>
+                        {% for orien in plato_orien %}
+                            <option value="{{ orien.id_plato_orien }}">{{ orien.plato_orientado }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <select id="Tipo_plato_id_tipo_plato" name="Tipo_plato_id_tipo_plato" required>
+                        <option value="" selected disabled>-</option>
+                        {% for plato in tipo_plato %}
+                            <option value="{{ plato.id_tipo_plato }}">{{ plato.Plato_categoria }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" name="action" value="Actualizar Plato">
+                </td>
+                <td><button type="button" class="btn btn-danger"><a href="{% url 'del-plato' i.id_plato  %}" onclick="return confirm('Estas seguro de eliminar este plato?')">Eliminar</a></button></td> 
+            </tr>
+        </form>
+        {% endfor %}
+    </table>
+    <a href="{% url 'index-platos'%}">Regresar</a>
+</body>
+</html>

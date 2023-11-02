@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p align="left">Módulo Platos</p>
+    <h3> Registrar un plato orientado</h3>
+    <form action="{% url 'crear-plato' %}" method="post">
+        {% csrf_token %}
+        <label for="plato_orientado">Plato Orientado a</label>
+        <input type="text" id="plato_orientado" name="plato_orientado" placeholder="plato_orientado"><br>
+        <input type="submit" value="Guardar Plato Orientado">
+    </form><br><br><br>
+
+    <h3> Registrar un tipo de plato</h3>
+    <form action="{% url 'crear-plato' %}" method="post">
+        {% csrf_token %}
+        <label for="Plato_categoria">Categoria de plato</label>
+        <input type="text" id="Plato_categoria" name="Plato_categoria" placeholder="Plato_categoria"><br>
+        <label for="Plato_menu">Nombre Plato_menu</label>
+        <input type="text" id="Plato_menu" name="Plato_menu" placeholder="Plato_menu"><br>
+        <input type="submit" value="Guardar Categoría Plato">
+    </form><br><br><br>
+
+
+    <h3>Crea un Plato</h3>
+    <form action="{% url 'crear-plato' %}" method="post">
+        {% csrf_token %}
+            <div>
+                <label for="Nombre_Plato">Nombre Plato</label>
+                <input type="text" name="Nombre_Plato" id="Nombre_Plato" placeholder="platoducto">
+            </div>
+            <div>
+                <label for="Valor">Valor plato</label>
+                <input type="number" name="Valor" id="Valor" placeholder="1000">
+            </div>
+            <div>
+                <label for="Descripcion">Descripción plato</label>
+                <input type="text" name="Descripcion" id="Descripcion" placeholder="Descripcion">
+            </div>
+            <label for="plato_orien_id_plato_orien">Selecciona la orientación del plato</label>
+            <select id="plato_orien_id_plato_orien" name="plato_orien_id_plato_orien" required>
+                <option value="" selected disabled>-</option>
+                {% for i in plato_orien %}
+                    <option value="{{ i.id_plato_orien }}">{{ i.plato_orientado }}</option>
+                {% endfor %}
+            </select><br> 
+            <label for="Tipo_plato_id_tipo_plato">Selecciona el tipo de plato</label>           
+            <select id="Tipo_plato_id_tipo_plato" name="Tipo_plato_id_tipo_plato" required>
+                <option value="" selected disabled>-</option>
+                {% for plato in tipo_plato %}
+                    <option value="{{ plato.id_tipo_plato }}">{{ plato.Plato_categoria }}</option>
+                {% endfor %}
+            </select><br>
+            <input type="submit" value="Crear nuevo plato">
+    </form>
+    <a href="{% url 'index-platos'%}">Regresar</a>
+</body>
+</html>

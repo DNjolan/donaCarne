@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'huesped',
     'inicio',
     'habitacion',
+    'plato',
+    'producto',
 ]
 
 MIDDLEWARE = [

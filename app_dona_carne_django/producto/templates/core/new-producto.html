@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenes y Productos</title>
+</head>
+<body>
+    <p align="left">Módulo Productos</p>
+    <h1>Solicitar productos</h1>
+    <p>Ingresa la información para cada categoría</p>
+    <form action="{% url 'new-producto' %}" method="post">
+        {% csrf_token %}
+        <label for="Categoria">Nombre Categoria</label>
+        <input type="text" id="Categoria" name="Categoria" placeholder="Categoria"><br>
+
+        <input type="submit" value="guardar">
+    </form><br><br><br><br><br><br><br>
+
+    <div>
+        <h3> Registra un producto</h3>
+        <form action="{% url 'new-producto' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="Nombre_pro">Nombre Producto</label>
+                <input type="text" name="Nombre_pro" id="Nombre_pro" placeholder="producto">
+            </div>
+            <div>
+                <label for="Valor_pro">Valor producto</label>
+                <input type="number" name="Valor_pro" id="Valor_pro" placeholder="1">
+            </div>
+            <div>
+                <label for="Descripcion_pro">Descripción producto</label>
+                <input type="text" name="Descripcion_pro" id="Descripcion_pro" placeholder="Habitación para una familia con 4 hijos">
+            </div>
+            <label for="Cate_producto_id_categoria">Nombre Categoria</label>
+            <select id="Cate_producto_id_categoria" name="Cate_producto_id_categoria" required>
+                <option value="" selected disabled>Selecciona una categoría</option>
+                {% for categoria in Categorias %}
+                    <option value="{{ categoria.id_categoria }}">{{ categoria.Categoria }}</option>
+                {% endfor %}
+            </select><br>
+            <input type="submit" placeholder="Crear">
+        </form>
+    </div>
+    <button><a href="{% url 'ver-productos'%}">Ver Productos</a></button>
+    <button><a href="{% url 'new-orden'%}">Crea una orden</a></button>
+    <center><a href="{% url 'index_pro'%}">Regresar</a></center> 
+
+        
+</body>
+</html>

@@ -6,6 +6,8 @@ import { createHuespedRouter } from "./src/routes/huesped.js";
 import { createDatosXRouter } from "./src/routes/obtener_datos_x.js";
 import { createPostDatosXRouter } from "./src/routes/post_datos_x.js";
 import { createHabitacionRouter } from "./src/routes/habitacion.js";
+import { createPlatoRouter } from "./src/routes/plato.js";
+import { createProductoRouter } from "./src/routes/producto.js";
 
 const app = express()
 app.use(json())
@@ -24,6 +26,10 @@ app.use('/datos', createDatosXRouter())
 app.use('/post-datos-x', createPostDatosXRouter())
 // modulo habitación
 app.use('/habitacion', createHabitacionRouter())
+// modulo plato
+app.use('/plato', createPlatoRouter())
+// modulo producto
+app.use('/producto', createProductoRouter())
 
 app.listen(PORT, () => {
     console.log(`server listening on port http://localhost:${PORT}`)
