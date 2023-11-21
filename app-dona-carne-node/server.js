@@ -9,7 +9,7 @@ import { createHabitacionRouter } from "./src/routes/habitacion.js";
 import { createPlatoRouter } from "./src/routes/plato.js";
 import { createProductoRouter } from "./src/routes/producto.js";
 
-const app = express()
+export const app = express()
 app.use(json())
 app.use(corsMiddleware())
 app.disable('x-powered-by')

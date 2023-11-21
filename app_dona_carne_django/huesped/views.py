@@ -20,7 +20,6 @@ def inicio_sesion_hues(request):
                 return redirect('inicio')
         else:
             return render (request, 'core/inicio-sesion-hues.html')
-    return render (request,'core/inicio-sesion-hues.html')
 
 def registrar_huesped(request):
     usuario = request.session.get('usuario', default=None)

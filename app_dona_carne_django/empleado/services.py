@@ -1,5 +1,4 @@
 import requests
-import json
 
 def inicio_sesion(datos):
     url = 'http://localhost:1234/empleado/inicio-sesion'
@@ -47,7 +46,6 @@ def serv_get_comuna():
     else:
         print('error')
         return
-    return
 
 def serv_get_region():
     url = 'http://localhost:1234/datos/obtener-regiones'
@@ -63,11 +61,11 @@ def serv_get_region():
     else:
         print('error')
         return
-    return
 
 def serv_post_direccion(data_direccion):
     url = 'http://localhost:1234/post-datos-x/registrar-direccion'
     respuesta = requests.post(url, json = data_direccion)
+    print('Respuesta post direccion: ', respuesta)
 
     if respuesta.status_code == 200:
         try:
@@ -90,7 +88,8 @@ def serv_get_direccion():
             data = respuesta.json()
             return data
         except requests.exceptions.RequestException as err:
-            return JsonResponse({'error: ': str(err)}, status=500)
+            print('Error de conexión: ', err)
+            return None
     else:
         print('error')
         return
@@ -104,7 +103,8 @@ def serv_post_empleado(datos):
             data = respuesta.json()
             return data
         except requests.exceptions.RequestException as err:
-            return JsonResponse({'error: ': str(err)}, status=500)
+            print('Error de conexión: ', err)
+            return None
     else:
         print('error')
         return

@@ -24,7 +24,6 @@ def view_inicio_sesion(request):
                 return redirect('inicio')
         else:
             return render (request, 'core/inicio-sesion.html')
-    return render (request,'core/inicio-sesion.html')
 
 def registrar_empleado(request):
     usuario = request.session.get('usuario', default=None)
