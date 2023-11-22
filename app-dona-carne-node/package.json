@@ -6,9 +6,12 @@
   "type": "module",
   "scripts": {
     "start": "node --watch server.js",
+    "test_prueba": "mocha tests/huesped/test_prueba_obtener_todas_las_habitaciones.js",
     "test_huesped": "mocha tests/huesped/",
     "test_crear_huesped": "mocha tests/huesped/test_crear_huesped.js",
-    "test_crear_huesped_duplicado": "mocha tests/huesped/test_crear_huesped_duplicado.js"
+    "test_crear_huesped_duplicado": "mocha tests/huesped/test_crear_huesped_duplicado.js",
+    "test_obtener_habi_por_id": "mocha tests/huesped/test_obtener_habi_por_id.js",
+    "test_obtener_habi_por_id_erroneo": "mocha tests/huesped/test_obtener_habi_por_id_erroneo.js"
   },
   "author": "",
   "license": "ISC",

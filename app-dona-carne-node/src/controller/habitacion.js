@@ -12,8 +12,11 @@ export class HabitacionController {
     getIDHabitacion = async (req, res) => {
         const id_reg_habi = req.query.id_reg_habi
         const resultado = await HabitacionDao.daoGetForIDHabitacion({id_reg_habi})
-        if (resultado) return res.json(resultado[0])
-        return res.json({mensaje: 'No existe habitación'})
+        if (resultado[0]){
+            return res.json(resultado[0])
+        } else {
+            return res.json({mensaje: 'No existe habitación'})
+        }        
     }
 
     postHabitacion = async (req, res) => {

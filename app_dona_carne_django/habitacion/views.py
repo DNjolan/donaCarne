@@ -8,7 +8,7 @@ def visualizar_habitaciones(request):
     if (usuario == None):
         return redirect('inicio')
     else:
-        if (usuario.get('Rol_id_rol') == 1 or usuario.get('Rol_id_rol') == 2):
+        if (usuario.get('Rol_id_rol') == 1 or usuario.get('Rol_id_rol') == 2 or usuario.get('Rol_id_rol') == 3):
             datos = {
                 'correo': usuario.get('Correo'),
                 'contrasena': usuario.get('contrasena'),

@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 
 describe('Huesped', () => {
     describe('Manejar huesped', () => {
-        it('Deberia fallar el test por usuario duplicado', (done) => {
+        it('Deberia crear un huesped correctamente', (done) => {
             chai.request(app)
                 .post('/huesped/registrar-huesped')
                 .send({                    
