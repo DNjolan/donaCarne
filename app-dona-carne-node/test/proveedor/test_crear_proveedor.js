@@ -18,8 +18,10 @@ describe('Proveedor', () => {
                     'Nombre_empresa': 'Colun',
                     'Rubro': 'Lacteo',
                     'numero_telefono': 940404040,
-                    'Logo': null,
-                    'Rut_proveedor': '1234-k',                    
+                    'Logo': 'xd',
+                    'Rut_proveedor': '1234-k',    
+                    'correo':'da.nieto@duocuc.cl',
+                    'contrasena': 1234                
                 })
                 .end(function(err, res){
                     if (err) done(err)
