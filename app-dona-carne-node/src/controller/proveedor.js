@@ -18,12 +18,12 @@ export class ProveedorController {
     }
 
     postProveedor = async (req, res) => {
-        const Numero_telefono = req.query.Numero_telefono;
-        const Correo = req.query.Correo;
-        const Nombre_empresa = req.query.Nombre_empresa;
-        const Rubro = req.query.Rubro;
-        const Logo = req.query.Logo
-        const Rut_proveedor = req.query.Rut_proveedor;
+        const Numero_telefono = req.body.Numero_telefono;
+        const Correo = req.body.Correo;
+        const Nombre_empresa = req.body.Nombre_empresa;
+        const Rubro = req.body.Rubro;
+        const Logo = req.body.Logo
+        const Rut_proveedor = req.body.Rut_proveedor;
     
         // Agregar declaraciones de depuración
         console.log('Datos recibidos en el cuerpo de la solicitud:');
@@ -34,8 +34,8 @@ export class ProveedorController {
         console.log('Logo :', Logo);
         console.log('Rut proveedor:',Rut_proveedor);
     
-        const correo = req.query.correo;
-        const contrasena = req.query.contrasena;
+        const correo = req.body.correo;
+        const contrasena = req.body.contrasena;
     
         // Agregar declaración de depuración
         console.log('Datos de autenticación:');

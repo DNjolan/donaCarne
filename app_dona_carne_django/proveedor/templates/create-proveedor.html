@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Administrador de proveedor // Creación de proveedores</h1>
+    <a href="{% url 'inicio' %}">Inicio</a>
+    <br>
+    <br>
+    <a href="{% url 'visualizar_proveedor' %}">Volver</a>
+    <br>
+    <br>
+    <form action="{% url 'crear_proveedor' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="Numero_telefonos">Numeros de telefono</label>
+            <input type="number" name="Numero_telefono" id="Numero_telefono" placeholder="11">
+        </div>
+        <div>
+            <label for="Correos">Correos</label>
+            <input type="text" name="Correo" id="Correo" placeholder="11">
+        </div>
+        <div>
+            <label for="Nombre_empresas">Nombre de empresas</label>
+            <input type="text" name="Nombre_empresa" id="Nombre_empresa" placeholder="55">
+        </div>
+        <div>
+            <label for="Rubros">Rubros</label>
+            <input type="text" name="Rubro" id="Rubro" placeholder="24">
+        </div>
+        <div>
+            <label for="Logos">Logos</label>
+            <input type="text" name="Logo" id="Logo" placeholder="Logo">
+        </div>
+        <div>
+            <label for="Rut_proveedors">Rut de proveedores</label>
+            <input type="text" name="Rut_proveedor" id="Rut_proveedor" placeholder="60000">
+        </div>
+        <input type="submit" placeholder="Crear">
+    </form>
+</body>
+</html>

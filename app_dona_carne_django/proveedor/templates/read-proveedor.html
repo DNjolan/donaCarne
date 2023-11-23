@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Administrador de proveedores</h1>
+    <a href="{% url 'crear_proveedor' %}">Crear proveedor</a>
+    <br>
+    <br>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Numero de Telefono</th>
+            <th>Correo</th>
+            <th>Nombre_empresa</th>
+            <th>Rubro</th>
+            <th>Logo</th>
+            <th>Rut Proveedor</th>
+            <th>ID Proveedor</th>
+        </tr>
+        {% for i in proveedores %}
+            <tr>
+                <td>{{ i.id_proveedor }}</td>
+                <td>{{ i.Numero_telefono }}</td>
+                <td>{{ i.Correo }}</td>
+                <td>{{ i.Nombre_empresa }}</td>
+                <td>{{ i.Rubro }}</td>
+                <td>{{ i.Logo }}</td>
+                <td>{{ i.Rut_proveedor }}</td>
+                <td>
+                    {% for e in proveedor %}
+                        {% if i.Proveedor_id_proveedor == e.id_proveedor %}
+                            {{ e.Nombre }}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

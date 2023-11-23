@@ -10,7 +10,7 @@ import { createComedorRouter} from "./src/routes/comedor.js";
 import { createProveedorRouter } from "./src/routes/proveedor.js";
 
 
-const app = express()
+export const app = express()
 app.use(json())
 app.use(corsMiddleware())
 app.disable('x-powered-by')
