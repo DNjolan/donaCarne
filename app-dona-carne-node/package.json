@@ -8,8 +8,18 @@
     "start": "node --watch server.js",
     "test_crear_proveedor": "mocha test/proveedor/test_crear_proveedor.js",
     "test_crear_proveedor_duplicado": "mocha test/proveedor/test_crear_proveedor_duplicado.js",
-    "test_crear_proveedor_datos_vacio": "mocha test/proveedor/test_crear_proveedor_datos_vacio.js"
-  
+    "test_crear_proveedor_datos_vacio": "mocha test/proveedor/test_crear_proveedor_datos_vacio.js",
+    "test_crear_proveedor_valor_especial": "mocha test/proveedor/test_crear_proveedor_valor_especial.js",
+    "test_crear_proveedor_limite_caracter_telefono": "mocha test/proveedor/test_crear_proveedor_limite_caracter_telefono.js",
+    "test_crear_proveedor_limite_correo": "mocha test/proveedor/test_crear_proveedor_limite_correo.js",
+    "test_crear_proveedor_limite_nombre_empresa": "mocha test/proveedor/test_crear_proveedor_limite_nombre_empresa.js",
+    "test_crear_proveedor_limite_rubro": "mocha test/proveedor/test_crear_proveedor_limite_rubro.js",
+    "test_crear_proveedor_limite_telefono": "mocha test/proveedor/test_crear_proveedor_limite_telefono.js",
+    "test_crear_proveedor_limite_rut_proveedor": "mocha test/proveedor/test_crear_proveedor_limite_rut_proveedor.js",
+    "test_crear_proveedor_nulo_nombre_empresa": "mocha test/proveedor/test_crear_proveedor_nulo_nombre_empresa.js",
+    "test_crear_proveedor_nulo_rubro": "mocha test/proveedor/test_crear_proveedor_nulo_rubro.js",
+    "test_crear_proveedor_nulo_rut_proveedor": "mocha test/proveedor/test_crear_proveedor_nulo_rut_proveedor.js",
+    "test_listar_proveedor": "mocha test/proveedor/test_listar_proveedor.js"
   
   },
 
