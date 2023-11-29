@@ -11,7 +11,7 @@ describe('Proveedor', () => {
     describe('Manejar Proveedor', () => {
         it('Debería obtener la lista de proveedores', (done) => {
             chai.request(app)
-                .get('/proveedor/')
+                .get('/proveedor/todo-proveedor')
                 .end(function (err, res) {
                     if (err) done(err);
 
@@ -21,11 +21,13 @@ describe('Proveedor', () => {
                     // Verifica que el cuerpo de la respuesta sea un array de proveedores
                     expect(res.body).to.be.an('array');
 
-                    // Puedes agregar más expectativas según la estructura esperada de los datos de proveedores
-                    // Por ejemplo, verificar que cada proveedor tenga propiedades específicas como 'id', 'nombre', etc.
+                    // Imprime los proveedores en la consola
+                    console.log('Lista de Proveedores:', res.body);
 
+                
                     done();
                 });
         });
     });
 });
+

@@ -19,7 +19,11 @@
     "test_crear_proveedor_nulo_nombre_empresa": "mocha test/proveedor/test_crear_proveedor_nulo_nombre_empresa.js",
     "test_crear_proveedor_nulo_rubro": "mocha test/proveedor/test_crear_proveedor_nulo_rubro.js",
     "test_crear_proveedor_nulo_rut_proveedor": "mocha test/proveedor/test_crear_proveedor_nulo_rut_proveedor.js",
-    "test_listar_proveedor": "mocha test/proveedor/test_listar_proveedor.js"
+    "test_listar_proveedor": "mocha test/proveedor/test_listar_proveedor.js",
+    "test_listar_inyeccion_sql": "mocha test/proveedor/test_listar_inyeccion_sql.js",
+    "test_crear_proveedor_simultaneo": "mocha test/proveedor/test_crear_proveedor_simultaneo.js",
+    "test_crear_proveedor_sin_credencial": "mocha test/proveedor/test_crear_proveedor_sin_credencial.js",
+    "test_crear_proveedor_con_credencial": "mocha test/proveedor/test_crear_proveedor_con_credencial.js"
   
   },
 
