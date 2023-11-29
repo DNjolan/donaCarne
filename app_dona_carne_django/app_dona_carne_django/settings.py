@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'huesped',
     'inicio',
     'habitacion',
+    'proveedor'
 ]
 
 MIDDLEWARE = [
