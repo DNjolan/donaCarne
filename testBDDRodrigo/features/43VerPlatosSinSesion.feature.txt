@@ -1,0 +1,7 @@
+Feature: Ver Plato sin sesion
+
+
+Scenario: Usuario sin sesion iniciada accede a link de platos
+
+Given 43 me dirigo a la pagina "http://127.0.0.1:8000/plato/ver-platos/"
+ 

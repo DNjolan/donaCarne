@@ -1,0 +1,9 @@
+Feature: Visualizar platos empleado
+
+
+Scenario: Empleado visualiza la lista de platos
+
+Given 42 me dirigo a la pagina "http://127.0.0.1:8000/"
+When 42 hago click en el botón iniciar sesión "/html/body/a[1]"
+When 42 ingresar datos de Empleado
+Then 42 ingreso a los platos "http://127.0.0.1:8000/plato/ver-platos/"

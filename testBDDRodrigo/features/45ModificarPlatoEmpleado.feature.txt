@@ -1,0 +1,11 @@
+Feature: Modificacion atributos plato por medio de un empleado
+
+
+Scenario: Empleado edita plato exitosamente
+
+Given 45 me dirigo a la pagina "http://127.0.0.1:8000/"
+When 45 hago click en el botón iniciar sesión "/html/body/a[1]"
+When 45 ingresar datos de Empleado
+When 45 ingreso a editar los platos "http://127.0.0.1:8000/plato/edit-plato/"
+When 45 modifico datos de platos
+Then 45 ingreso al registro  de platos "http://127.0.0.1:8000/plato/ver-platos/"

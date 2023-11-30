@@ -1,0 +1,10 @@
+Feature: Creación de un Plato empleado
+
+
+Scenario: Empleado registra un nuevo plato
+
+Given 41 me dirigo a la pagina "http://127.0.0.1:8000/"
+When 41 hago click en el botón iniciar sesión "/html/body/a[1]"
+When 41 ingresar datos de Empleado
+When 41 ingreso a los platos "http://127.0.0.1:8000/plato/crear-plato/"
+Then 41 ingreso datos de platos

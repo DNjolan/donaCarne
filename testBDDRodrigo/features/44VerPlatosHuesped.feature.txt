@@ -1,0 +1,9 @@
+Feature: Ver Platos Huesped
+
+
+Scenario: Usuario huesped trata de acceder a link de Ver platos
+
+Given 44 me dirigo a la pagina "http://127.0.0.1:8000/"
+When 44 hago click en el botón iniciar sesión huesped "/html/body/a[2]"
+When 44 ingresar datos de Huesped
+Then 44 ingreso a los platos "http://127.0.0.1:8000/plato/ver-platos/"

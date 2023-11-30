@@ -1,0 +1,9 @@
+Feature: Modificar Plato Huesped
+
+
+Scenario: Usuario huesped trata de acceder a link de Modificar platos
+
+Given 47 me dirigo a la pagina "http://127.0.0.1:8000/"
+When 47 hago click en el botón iniciar sesión huesped "/html/body/a[2]"
+When 47 ingresar datos de Huesped
+Then 47 ingreso a modificar plato "http://127.0.0.1:8000/plato/edit-plato/"

@@ -1,0 +1,9 @@
+Feature: Creacion de Categoria de un plato como empleado
+
+Scenario: Crear una orientacion de plato como empleado
+
+Given me dirigo a la pagina "http://127.0.0.1:8000/"
+When hago click en el botón iniciar sesión "/html/body/a[1]"
+When ingresar datos de Empleado
+When ingreso a los platos "http://127.0.0.1:8000/plato/crear-plato/"
+Then ingreso datos de la orientacion plato

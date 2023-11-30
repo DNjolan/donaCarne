@@ -1,0 +1,6 @@
+Feature: Modificacion atributos plato por medio de un usuario sin sesión iniciada
+
+
+Scenario: Usuario sin sesión iniciada intenta editar plato
+
+Given 46 me dirigo a la pagina "http://127.0.0.1:8000/plato/edit-plato"
