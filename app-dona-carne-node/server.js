@@ -8,6 +8,7 @@ import { createPostDatosXRouter } from "./src/routes/post_datos_x.js";
 import { createHabitacionRouter } from "./src/routes/habitacion.js";
 import { createPlatoRouter } from "./src/routes/plato.js";
 import { createProductoRouter } from "./src/routes/producto.js";
+import { createProveedorRouter } from "./src/routes/proveedor.js"
 
 export const app = express()
 app.use(json())
@@ -30,6 +31,8 @@ app.use('/habitacion', createHabitacionRouter())
 app.use('/plato', createPlatoRouter())
 // modulo producto
 app.use('/producto', createProductoRouter())
+// modulo proveedor
+app.use('/proveedor', createProveedorRouter())
 
 app.listen(PORT, () => {
     console.log(`server listening on port http://localhost:${PORT}`)
